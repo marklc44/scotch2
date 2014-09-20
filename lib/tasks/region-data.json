@@ -1,0 +1,34 @@
+{
+  "regions": [
+    {
+      "id": 1,
+      "name": "Speyside",
+      "description": "The biggest region in terms of production, half of all Scottish distilleries can be found here. Speyside single malts are noted in general for their elegance and complexity, sometimes with a refined smokiness but more often a fruitness ranging from ripe pears to sultanas."
+    },
+    {
+      "id": 2,
+      "name": "Highland",
+      "description": "By far the biggest region geographically, the Highland malts inevitably embrace wide and robust flavour variations. Generally heavier and drier in character compared to other regions, whiskies from here often have nutty, honey, heather or peaty notes. Distilleries near the sea also have some salty, maritime influences in their malts."
+    },
+    {
+      "id": 3,
+      "name": "Lowland",
+      "description": "There are only a handful of Lowland distilleries still operating, producing softer, lighter style single malts that are traditionally known as the 'Lowland Ladies'. Whiskies from here are known for their malty, zesty flavours with slightly fruity, citrusy and sometimes floral notes."
+    },
+    {
+      "id": 4,
+      "name": "Islay",
+      "description": "Pronounced \"eye-luh\", this is the greatest of whisky-producing islands. It is only 25 miles long, but has no fewer than eight distilleries. It’s covered in peat which is exposed to rain and sea spray. Harvested and used to malt the barley used in distilling, the peat gives the single malts here their characteristic smoky flavour with some salty, seaweed notes."
+    },
+    {
+      "id": 5,
+      "name": "Campbeltown",
+      "description": "Campbeltown, the small coastal town at the tip of the Kintyre peninsula, once boasted over 30 local distilleries but now has just three. Nevertheless, they are still considered by serious malt lovers to represent a distinct region in their own right. Single malts produced here are noticeable for their briny character and some boast peaty notes."
+    },
+    {
+      "id": 6,
+      "name": "Islands",
+      "description": "Island single malts is a general term for single malt Scotch whiskies produced on the islands around the perimeter of the Scottish mainland. The exception is Islay, which is considered a separate whisky producing region (see Islay whisky). The islands are not a recognized whisky producing region as such, but are considered to be part of the Highland region."
+    }
+  ]
+}
