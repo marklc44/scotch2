@@ -8,19 +8,16 @@ class SessionsController < ApplicationController
 
     if @user
       session[:user_id] = @user.id
-      # render text: "Logged you in"
-      redirect_to login_url, :notice => "You have just logged in!!"
+      redirect_to root_path, :notice => "You have just logged in!!"
     else
-      # render text: "Who are you really???"
-      flash.now[:error] = "Cant log you in "
+      flash.now[:error] = "Cant log you in"
       render :new
     end
-
   end
 
   def destroy
     session[:user_id] = nil
     # render text: "You've destroyed the session"
-    redirect_to login_path
+    redirect_to new_session_path
   end
 end

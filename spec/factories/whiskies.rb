@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :whisky do
-    name "MyString"
+    name Faker::Lorem.word
     price 1
     age 1
     year 1

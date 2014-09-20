@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :producer do
-    name "MyString"
-    url "MyText"
-    image_url "MyText"
-    wa_brand_id "MyString"
-    semantics3_id "MyString"
+    name Faker::Lorem.word
+    url Faker::Internet.http_url
+    image_url Faker::Internet.http_url
+    wa_brand_id "90"
+    semantics3_id "90"
   end
 end
