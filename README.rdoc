@@ -1,7 +1,8 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Continuing Scotch Whisky flavor search and data visualization project. Explore Scotch by region, producer, flavor profile, age, price and rating.
+
+This version of the project is an Angular SPA built on Rails with Postgres.
 
 Things you may want to cover:
 
@@ -21,8 +22,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
