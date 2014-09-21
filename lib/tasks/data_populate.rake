@@ -29,7 +29,7 @@ namespace :data do
     # INSERT BELOW
 
     # for region data
-    path = File.expand_path("../region-data.json", __FILE__)
+    path = File.expand_path("../data/region-data.json", __FILE__)
     file = File.read(path)
     region_data = JSON.parse(file)
 
@@ -38,7 +38,7 @@ namespace :data do
     end
 
     # for producer data
-    producer_path = File.expand_path("../producer_data.json", __FILE__)
+    producer_path = File.expand_path("../data/producer_data.json", __FILE__)
     producer_file = File.read(producer_path)
     producer_data = JSON.parse(producer_file)
 
@@ -47,7 +47,7 @@ namespace :data do
     end
 
     # for flavor_profile data
-    fp_path = File.expand_path("../producer_flavor_profiles.json", __FILE__)
+    fp_path = File.expand_path("../data/producer_flavor_profiles.json", __FILE__)
     fp_file = File.read(fp_path)
     fp_data = JSON.parse(fp_file)
     puts fp_data.size
@@ -57,7 +57,7 @@ namespace :data do
     end
 
     # for whisky data
-    w_path = File.expand_path("../scraping_results.json", __FILE__)
+    w_path = File.expand_path("../data/scraping_results.json", __FILE__)
     w_file = File.read(w_path)
     w_data = JSON.parse(w_file)
 

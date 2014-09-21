@@ -5,7 +5,11 @@ class WhiskiesController < ApplicationController
   respond_to :json, :html
 
   def index
-    respond_with Whisky.find_by_producer_id(params[:producer_id])
+    if params[:producer_id]
+      respond_with Whisky.find_by_producer_id(params[:producer_id])
+    else
+      respond_with Whisky.all
+    end
   end
 
   def show
