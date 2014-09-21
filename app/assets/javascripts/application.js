@@ -16,4 +16,5 @@
 //= require angular-1.2.24/angular-route.min
 //= require angular-1.2.24/angular-resource.min
 //= require angular-1.2.24/angular-animate.min
+//= require ui-bootstrap-tpls-0.11.0.min
 //= require_tree .

@@ -4,14 +4,11 @@ var AppCtrl, AppCtrls;
 AppCtrls = angular.module("AppCtrls", []);
 
 AppCtrl = (function() {
-  function AppCtrl(scope, http) {
+  function AppCtrl(scope, Whisky) {
     this.scope = scope;
-    this.http = http;
+    this.Whisky = Whisky;
     this.whiskies = [];
-    this.greeting = "Hello World";
-    console.log("AppCtrl working");
-    console.log(this.http);
-    this.http.get("/whiskies.json").success((function(_this) {
+    this.Whisky.query((function(_this) {
       return function(data) {
         console.log(data);
         return _this.whiskies = data;
@@ -23,4 +20,4 @@ AppCtrl = (function() {
 
 })();
 
-AppCtrls.controller("AppCtrl", ["$scope", "$http", AppCtrl]);
+AppCtrls.controller("AppCtrl", ["$scope", "Whisky", AppCtrl]);

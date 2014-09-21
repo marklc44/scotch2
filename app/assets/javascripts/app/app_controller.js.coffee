@@ -2,13 +2,10 @@ AppCtrls = angular.module "AppCtrls", []
 
 class AppCtrl
 
-  constructor: (@scope, @http) ->
+  constructor: (@scope, @Whisky) ->
     @whiskies = []
-    @greeting = "Hello World"
-    console.log("AppCtrl working")
-    console.log(@http)
 
-    @http.get("/whiskies.json").success (data) =>
+    @Whisky.query (data) =>
       console.log(data)
       @whiskies = data
 
@@ -26,6 +23,6 @@ class AppCtrl
 #       @word = data
 
 
-AppCtrls.controller "AppCtrl", ["$scope", "$http", AppCtrl]
+AppCtrls.controller "AppCtrl", ["$scope", "Whisky", AppCtrl]
 # saved this as example of how to add another controller
 # AppCtrls.controller "ShowWordCtrl", ["$scope", "Word", "$routeParams", ShowWordCtrl]

@@ -1,6 +1,10 @@
 <h1>SitesTemplates#index</h1>
-<p>this is the sites template</p>
 <p>{{app.greeting}}</p>
 <ul>
-  <li ng-repeat="whisky in app.whiskies | limitTo: 10">{{whisky.name}}</li>
+  <li ng-repeat="whisky in app.whiskies | limitTo: 10 | orderBy: '-rating'">
+    <h4>{{whisky.name}}</h4>
+    <p>Rating: {{whisky.rating}}</p>
+    <p>Price: ${{whisky.price}}</p>
+    <p>Age: {{whisky.age}}</p>
+  </li>
 </ul>
