@@ -10,6 +10,13 @@ AppCtrl = (function() {
     this.whiskies = [];
     this.greeting = "Hello World";
     console.log("AppCtrl working");
+    console.log(this.http);
+    this.http.get("/whiskies.json").success((function(_this) {
+      return function(data) {
+        console.log(data);
+        return _this.whiskies = data;
+      };
+    })(this));
   }
 
   return AppCtrl;

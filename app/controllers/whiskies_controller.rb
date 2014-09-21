@@ -2,7 +2,7 @@ class WhiskiesController < ApplicationController
 
   before_action :render_layout_if_html
 
-  respond_to :json, :html
+  respond_to :json
 
   def index
     if params[:producer_id]

@@ -2,5 +2,5 @@
 <p>this is the sites template</p>
 <p>{{app.greeting}}</p>
 <ul>
-  <li ng-repeat="whisky in app.whiskies">{{whisky.name}}</li>
+  <li ng-repeat="whisky in app.whiskies | limitTo: 10">{{whisky.name}}</li>
 </ul>

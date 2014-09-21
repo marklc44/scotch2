@@ -6,12 +6,13 @@ class AppCtrl
     @whiskies = []
     @greeting = "Hello World"
     console.log("AppCtrl working")
+    console.log(@http)
 
-  # allWhisky = =>
-  #   @http.get("/whiskies").success (data) =>
-  #     console.log(data)
+    @http.get("/whiskies.json").success (data) =>
+      console.log(data)
+      @whiskies = data
 
-  # allWhisky()
+
 
 # saved comments as a template for creating the
 # next controller
