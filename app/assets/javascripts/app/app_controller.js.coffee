@@ -4,12 +4,14 @@ class AppCtrl
 
   constructor: (@scope, @http) ->
     @whiskies = []
+    @greeting = "Hello World"
+    console.log("AppCtrl working")
 
-  allWhisky = =>
-    @http.get("/whiskies").success (data) =>
-      console.log(data)
+  # allWhisky = =>
+  #   @http.get("/whiskies").success (data) =>
+  #     console.log(data)
 
-  allWhisky()
+  # allWhisky()
 
 # saved comments as a template for creating the
 # next controller

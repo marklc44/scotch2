@@ -1,4 +1,4 @@
 ScotchApp = angular.module "ScotchApp", [
-  "ngRoute",
+  "AppRouter",
   "AppCtrls"
 ]
