@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :region do
-    name "MyString"
-    description "MyText"
+    name Faker::Lorem.word
+    description Faker::Lorem.sentence
   end
 end

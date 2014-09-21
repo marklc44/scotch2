@@ -6,9 +6,9 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
+<body ng-app>
+  Angular sanity check: {{ 1 + 2 }}
+  <div ng-view></div>
 
 </body>
 </html>

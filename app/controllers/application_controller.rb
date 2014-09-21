@@ -12,4 +12,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id])
   end
 
+  def render_layout_if_html
+    if request.format.symbol == :html
+      render "layouts/application"
+    end
+  end
+
 end

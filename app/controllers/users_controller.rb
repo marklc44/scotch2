@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :render_layout_if_html
+
   def show
   end
 

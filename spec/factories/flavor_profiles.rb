@@ -1,5 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
+KEYWORDS = ["smoky", "light", "delicate", "rich"]
+
 FactoryGirl.define do
   factory :flavor_profile do
     body 1
@@ -14,7 +16,10 @@ FactoryGirl.define do
     malty 1
     fruity 1
     floral 1
-    broad_keyword1 "MyString"
-    broad_keyword2 "MyString"
+    broad_keyword1 KEYWORDS.sample
+    broad_keyword2 KEYWORDS.sample
+
+    association :flavored, :factory => :whisky
   end
+
 end

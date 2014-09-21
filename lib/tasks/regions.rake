@@ -1,7 +1,8 @@
 require 'json'
 require_relative '../../app/models/region'
+require_relative '../../app/models/producer'
 
-namespace :region do
+namespace :data do
 
   # Checks and ensures task is not run in production.
   task :ensure_development_environment => :environment do
@@ -26,12 +27,33 @@ namespace :region do
     Rake::Task['db:reset'].invoke
 
     # INSERT BELOW
+
+    # for region data
     path = File.expand_path("../region-data.json", __FILE__)
     file = File.read(path)
     region_data = JSON.parse(file)
 
     region_data["regions"].each do |region|
       Region.create(region)
+    end
+
+    # for producer data
+    producer_path = File.expand_path("../producer_data.json", __FILE__)
+    producer_file = File.read(producer_path)
+    producer_data = JSON.parse(producer_file)
+
+    producer_data.each do |producer|
+      Producer.create(producer)
+    end
+
+    # for flavor_profile data
+    fp_path = File.expand_path("../producer_flavor_profiles.json", __FILE__)
+    fp_file = File.read(fp_path)
+    fp_data = JSON.parse(fp_file)
+    puts fp_data.size
+
+    fp_data.each do |fp|
+      FlavorProfile.create(fp)
     end
 
     # INSERT ABOVE
