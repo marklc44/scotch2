@@ -1,5 +1,8 @@
 ScotchApp = angular.module "ScotchApp", [
   "AppRouter",
   "AppCtrls",
-  "AppFactories"
+  "AppFactories",
+  "ui.bootstrap",
+  "AppFilters",
+  "ui.scroll"
 ]

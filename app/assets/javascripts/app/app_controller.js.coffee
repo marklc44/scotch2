@@ -1,28 +1,49 @@
 AppCtrls = angular.module "AppCtrls", []
 
-class AppCtrl
+class ResultsCtrl
 
   constructor: (@scope, @Whisky) ->
     @whiskies = []
+    @sortBy = '-rating'
+
+    # pagination
+    @currentPage = 1
+    @offset = 0
+
+    console.log(@sortBy.price)
 
     @Whisky.query (data) =>
       console.log(data)
       @whiskies = data
 
+  # call getWhiskies when filtering or sorting the results
+  # to get results not included in the limitTo
+  getAllWhiskies: =>
+    @Whisky.query (data) =>
+      console.log(data)
+      @whiskies = data
 
+  # pagination
+  setPage: (pageNo) =>
+    console.log pageNo
+    @currentPage = pageNo
+    @setOffset()
+
+  setOffset: =>
+    @offset = @currentPage * 10
 
 # saved comments as a template for creating the
 # next controller
-# class ShowWordCtrl
+class ShowWhiskyCtrl
 
-#   constructor: (@scope, @Word, routeParams) ->
-#     @word = ''
-#     @id = routeParams.id
+  constructor: (@scope, @Whisky, routeParams) ->
+    @whisky = {}
+    @id = routeParams.id
 
-#     @Word.get {id: @id}, (data) =>
-#       @word = data
+    @Whisky.get {id: @id}, (data) =>
+      @whisky = data
 
 
-AppCtrls.controller "AppCtrl", ["$scope", "Whisky", AppCtrl]
+AppCtrls.controller "ResultsCtrl", ["$scope", "Whisky", ResultsCtrl]
 # saved this as example of how to add another controller
-# AppCtrls.controller "ShowWordCtrl", ["$scope", "Word", "$routeParams", ShowWordCtrl]
+AppCtrls.controller "ShowWhiskyCtrl", ["$scope", "Whisky", "$routeParams", ShowWhiskyCtrl]

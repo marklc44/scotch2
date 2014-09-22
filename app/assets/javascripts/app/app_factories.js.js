@@ -17,6 +17,6 @@ AppFactories.factory("Producer", [
 
 AppFactories.factory("Region", [
   "$resource", function($resource) {
-    return $resource("region/:region_id/producers/:producer_id/whiskies/:id.json");
+    return $resource("/regions/:id.json");
   }
 ]);

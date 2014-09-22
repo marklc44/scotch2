@@ -11,7 +11,10 @@ Router = (function() {
     console.log("Setting Up");
     this.routeProvider.when("/", {
       templateUrl: "/sites_templates",
-      controller: "AppCtrl as app"
+      controller: "ResultsCtrl as results"
+    }).when("/whiskies/:id", {
+      templateUrl: "/sites_templates/whisky/show.html",
+      contoller: "ShowWhiskyCtrl as whisky"
     });
     this.locationProvider.html5Mode(true);
   }

@@ -11,5 +11,5 @@ AppFactories.factory "Producer", ["$resource", ($resource) ->
 ]
 
 AppFactories.factory "Region", ["$resource", ($resource) ->
-  return $resource "region/:region_id/producers/:producer_id/whiskies/:id.json"
+  return $resource "/regions/:id.json"
 ]

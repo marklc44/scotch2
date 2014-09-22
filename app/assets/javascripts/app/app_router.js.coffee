@@ -11,7 +11,10 @@ class Router
     @routeProvider
       .when "/",
         templateUrl: "/sites_templates",
-        controller: "AppCtrl as app"
+        controller: "ResultsCtrl as results"
+      .when "/whiskies/:id",
+        templateUrl: "/sites_templates/whisky/show.html",
+        contoller: "ShowWhiskyCtrl as whisky"
 
     @locationProvider.html5Mode(true)
 
