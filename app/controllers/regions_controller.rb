@@ -9,5 +9,6 @@ class RegionsController < ApplicationController
   end
 
   def show
+    respond_with Region.find_by_id(params[:id]).whiskies.includes(:region)
   end
 end

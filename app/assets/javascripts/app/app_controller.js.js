@@ -5,17 +5,22 @@ var AppCtrls, ResultsCtrl, ShowWhiskyCtrl,
 AppCtrls = angular.module("AppCtrls", []);
 
 ResultsCtrl = (function() {
-  function ResultsCtrl(scope, Whisky) {
+  function ResultsCtrl(scope, Whisky, RegionsWhiskies) {
     this.scope = scope;
     this.Whisky = Whisky;
+    this.RegionsWhiskies = RegionsWhiskies;
     this.setOffset = __bind(this.setOffset, this);
     this.setPage = __bind(this.setPage, this);
-    this.getWhiskies = __bind(this.getWhiskies, this);
+    this.hideRegionDescModal = __bind(this.hideRegionDescModal, this);
+    this.showRegionDescModal = __bind(this.showRegionDescModal, this);
+    this.getRegionWhiskies = __bind(this.getRegionWhiskies, this);
+    this.getAllWhiskies = __bind(this.getAllWhiskies, this);
     this.whiskies = [];
+    this.showRegionDesc = [];
     this.sortBy = '-rating';
+    this.showChart = false;
     this.currentPage = 1;
     this.offset = 0;
-    console.log(this.sortBy.price);
     this.Whisky.query((function(_this) {
       return function(data) {
         console.log(data);
@@ -24,13 +29,36 @@ ResultsCtrl = (function() {
     })(this));
   }
 
-  ResultsCtrl.prototype.getWhiskies = function() {
+  ResultsCtrl.prototype.getAllWhiskies = function() {
     return this.Whisky.query((function(_this) {
       return function(data) {
         console.log(data);
         return _this.whiskies = data;
       };
     })(this));
+  };
+
+  ResultsCtrl.prototype.getRegionWhiskies = function(region_id) {
+    console.log("region clicked");
+    return this.RegionsWhiskies.query({
+      id: region_id
+    }, (function(_this) {
+      return function(data) {
+        console.log("region-whiskies", data);
+        _this.showRegionDescModal(region_id);
+        return _this.whiskies = data;
+      };
+    })(this));
+  };
+
+  ResultsCtrl.prototype.showRegionDescModal = function(region_id) {
+    this.showRegionDesc = [];
+    this.showRegionDesc[region_id] = true;
+    return console.log(this.showRegionDesc);
+  };
+
+  ResultsCtrl.prototype.hideRegionDescModal = function() {
+    return this.showRegionDesc = [];
   };
 
   ResultsCtrl.prototype.setPage = function(pageNo) {
@@ -66,6 +94,6 @@ ShowWhiskyCtrl = (function() {
 
 })();
 
-AppCtrls.controller("ResultsCtrl", ["$scope", "Whisky", ResultsCtrl]);
+AppCtrls.controller("ResultsCtrl", ["$scope", "Whisky", "Region", "RegionsWhiskies", ResultsCtrl]);
 
 AppCtrls.controller("ShowWhiskyCtrl", ["$scope", "Whisky", "$routeParams", ShowWhiskyCtrl]);

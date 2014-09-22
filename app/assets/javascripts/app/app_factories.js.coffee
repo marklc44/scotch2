@@ -12,4 +12,18 @@ AppFactories.factory "Producer", ["$resource", ($resource) ->
 
 AppFactories.factory "Region", ["$resource", ($resource) ->
   return $resource "/regions/:id.json"
+
+]
+AppFactories.factory "RegionsWhiskies", ["$resource", ($resource) ->
+  return $resource "/regions/:id/whiskies.json"
+
+]
+
+AppFactories.factory "RegionsProducers", ["$resource", ($resource) ->
+  return $resource "/regions/:region_id/producers/:id.json"
+
+]
+AppFactories.factory "RegionsProducersWhiskies", ["$resource", ($resource) ->
+  return $resource "/regions/:region_id/producers/:producer_id/whiskies/:id.json"
+
 ]

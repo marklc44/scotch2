@@ -16,3 +16,6 @@
  */
 
  .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+ .row {
+  margin-bottom: 2em;
+ }

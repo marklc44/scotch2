@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get "/producers", to: "producers#index"
   get "/whiskies", to: "whiskies#index"
+  get "/regions/:id/whiskies", to: "regions#show"
 
   get 'passwords/new'
 

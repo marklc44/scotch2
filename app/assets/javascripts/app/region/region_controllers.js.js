@@ -2,9 +2,11 @@
 var RegionsCtrl;
 
 RegionsCtrl = (function() {
-  function RegionsCtrl(scope, Region) {
+  function RegionsCtrl(scope, Region, RegionsProducers, RegionsProducersWhiskies) {
     this.scope = scope;
     this.Region = Region;
+    this.RegionsProducers = RegionsProducers;
+    this.RegionsProducersWhiskies = RegionsProducersWhiskies;
     this.scope.regions = [];
     this.Region.query("/regions", (function(_this) {
       return function(data) {
@@ -17,4 +19,4 @@ RegionsCtrl = (function() {
 
 })();
 
-AppCtrls.controller("RegionsCtrl", ["$scope", "Region", RegionsCtrl]);
+AppCtrls.controller("RegionsCtrl", ["$scope", "Region", "RegionsProducers", "RegionsProducersWhiskies", RegionsCtrl]);

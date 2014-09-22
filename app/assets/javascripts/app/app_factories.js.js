@@ -20,3 +20,21 @@ AppFactories.factory("Region", [
     return $resource("/regions/:id.json");
   }
 ]);
+
+AppFactories.factory("RegionsWhiskies", [
+  "$resource", function($resource) {
+    return $resource("/regions/:id/whiskies.json");
+  }
+]);
+
+AppFactories.factory("RegionsProducers", [
+  "$resource", function($resource) {
+    return $resource("/regions/:region_id/producers/:id.json");
+  }
+]);
+
+AppFactories.factory("RegionsProducersWhiskies", [
+  "$resource", function($resource) {
+    return $resource("/regions/:region_id/producers/:producer_id/whiskies/:id.json");
+  }
+]);

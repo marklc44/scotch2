@@ -68,7 +68,8 @@ namespace :data do
         price: w["price"],
         year: filter_year(w["year"]),
         rating: w["rating"],
-        producer_id: get_producer_id(w["wa_brand_id"])
+        producer_id: get_producer_id(w["wa_brand_id"]),
+        region_id: get_region_id(w["wa_brand_id"])
         })
     end
 
@@ -82,6 +83,11 @@ end
 def get_producer_id(wa_brand_id)
   producer = Producer.find_by_wa_brand_id(wa_brand_id)
   producer_id = producer.id unless producer == nil
+end
+
+def get_region_id(wa_brand_id)
+  producer = Producer.find_by_wa_brand_id(wa_brand_id)
+  region_id = producer.region_id unless producer == nil
 end
 
 def filter_age(w_age)

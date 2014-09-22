@@ -2,6 +2,99 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// colors
+$water: rgba(34, 167, 240, 1.0);
+
 .regions {
-  background: blue;
+  &.map {
+    background: $water url(whisky-region-map-bg.svg) center center no-repeat;
+    background-size: auto 100%;
+    width: 100%;
+    height: 600px;
+    text-align: center;
+    color: white;
+    position: relative;
+    .Speyside {
+      position: absolute;
+      top: 15%;
+      right: 40.5%;
+      .region-img {
+        width: 200%;
+        .svg {
+          fill: #4B77BE;
+        }
+      }
+    }
+    .Highland {
+      position: absolute;
+      top: -9%;
+      right: 52.5%;
+      .region-img {
+        width: 370%;
+        .svg {
+          fill: #26A65B;
+        }
+      }
+    }
+    .Lowland {
+      position: absolute;
+      top: 46%;
+      right: 46.25%;
+      .region-img {
+        width: 290%;
+        .svg {
+          fill: #34495E;
+        }
+      }
+    }
+    .Campbeltown {
+      position: absolute;
+      top: 70%;
+      left: 42.5%;
+      .region-img {
+        width: 15%;
+        .svg {
+          fill: #3A539B;
+        }
+      }
+    }
+    .Islay {
+      position: absolute;
+      top: 58%;
+      left: 38.75%;
+      .region-img {
+        width: 82%;
+        .svg {
+          fill: #674172;
+        }
+      }
+    }
+    .Islands {
+      position: absolute;
+      top: -2%;
+      left: 32%;
+      h3 {
+        margin-top: 0;
+      }
+      .region-img {
+        width: 255%;
+        .svg {
+          fill: #F5AB35;
+        }
+      }
+
+    }
+    .overlay {
+      width: 400px;
+      position: absolute;
+      top: 10%;
+      left: 20%;
+      background: white;
+      color: #666;
+      padding: 1em;
+      border-radius: 4px;
+    }
+
+  }
+
 }
