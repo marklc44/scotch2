@@ -1,4 +1,4 @@
-AppCtrls = angular.module "AppCtrls", []
+
 
 class ResultsCtrl
 
@@ -58,6 +58,7 @@ class ShowWhiskyCtrl
     @id = routeParams.id
 
     @Whisky.get {id: @id}, (data) =>
+      console.log data
       @whisky = data
 
 

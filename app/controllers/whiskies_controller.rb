@@ -6,9 +6,10 @@ class WhiskiesController < ApplicationController
 
   def index
     if params[:producer_id]
-      respond_with Whisky.find_by_producer_id(params[:producer_id])
+      respond_with Whisky.find_by_producer_id(params[:producer_id]).includes(:producer)
     else
-      respond_with Whisky.all
+      # respond_with Whisky.all.includes(:producer)
+      respond_with Whisky.all.to_json(:include => [:producer, :region])
     end
   end
 
