@@ -1,0 +1,2 @@
+module ProducerTemplatesHelper
+end

@@ -14,7 +14,7 @@
       </div>
     </div><!-- /.col -->
   </div><!-- /.row -->
-<div taco></div>
+
 <div class="row">
   <div class="col-sm-12">
     <div class="btn-group">
@@ -23,9 +23,9 @@
     </div>
 
     <button class="btn btn-default pull-right" ng-model="results.showChart" btn-radio="'true'" uncheckable>Show Graph</button>
-    <div ng-show="results.showChart">
-      <div taco bubbleData="5"></div>
-      <div ng-include="'templates/bubble_chart.html'" ng-model="results.whiskies"></div>
+    <div class="chart-wrapper" ng-show="results.showChart">
+     <!--  <div id="bubble-chart" bubble-chart bubbleChartData="results.whiskies"></div> -->
+      <!-- <div ng-include="'bubble_chart.html'" ng-model="results.whiskies"></div> -->
     </div>
 
     <div class="results-filters">
@@ -33,12 +33,16 @@
     </div>
     <table class="table table-hover">
       <thead>
+        <th>Region</th>
+        <th>Producer</th>
         <th>Name</th>
         <th>Rating</th>
         <th>Price</th>
       </thead>
       <tbody>
         <tr ng-repeat="whisky in results.whiskies | limitTo: 10 | offset: results.currentPage | orderBy: results.sortBy">
+          <td>{{whisky.region.name}}</td>
+          <td><a href="/producers/{{whisky.producer.id}}">{{whisky.producer.name}}</a></td>
           <td><a href="/whiskies/{{whisky.id}}">{{whisky.name}}</a></td>
           <td>{{whisky.rating}}</td>
           <td>{{whisky.price | currency}}</td>

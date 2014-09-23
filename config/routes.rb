@@ -1,24 +1,34 @@
 Rails.application.routes.draw do
 
-  root "sites#index"
 
-  resources :regions do
-    resources :producers do
-      resources :whiskies
-    end
-  end
 
-  # match "*path", to: "sites#index", via: "get"
+  get 'producer_templates/show'
 
-  resources :users
-  resources :sessions
-  resources :sites_templates
+  root to: "whiskies#index"
 
-  get "/producers", to: "producers#index"
+
+
+  # resources :regions do
+  #   resources :producers do
+  #     resources :whiskies
+  #   end
+  # end
+
+
+
+  # resources :users
+  # resources :sessions
+  resources :whiskies
+  resources :whisky_templates
+  resources :regions
+
+  # get "/producers", to: "producers#index"
   get "/whiskies", to: "whiskies#index"
+  # get "/whiskies/:id", to: "whiskies#show"
+  get "/producers/:id", to: "producers#show"
   get "/regions/:id/whiskies", to: "regions#show"
 
-  get 'passwords/new'
+  # get 'passwords/new'
 
-
+  # match "*path", to: "sites#index", via: "get"
 end

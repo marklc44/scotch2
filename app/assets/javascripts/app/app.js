@@ -5,6 +5,6 @@ var ScotchApp = angular.module("ScotchApp", [
   "ui.bootstrap",
   "AppFilters",
   "ui.scroll"
-])
+]);
 
-var AppCtrls = angular.module("AppCtrls", [])
+var AppCtrls = angular.module("AppCtrls", []);

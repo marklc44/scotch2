@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  before_action :render_layout_if_html
+  # before_action :render_layout_if_html
 
   def new
     # my login form

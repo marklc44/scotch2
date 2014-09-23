@@ -10,11 +10,16 @@ class Router
     console.log("Setting Up")
     @routeProvider
       .when "/",
-        templateUrl: "/sites_templates",
+        templateUrl: "/whisky_templates",
         controller: "ResultsCtrl as results"
       .when "/whiskies/:id",
-        templateUrl: "/sites_templates/whisky/index.html",
+        templateUrl: "/whisky_templates/show",
         contoller: "ShowWhiskyCtrl as whisky"
+      .when "/producers/:id",
+        templateUrl: "/producer_templates/show.html",
+        controller: "ShowProducerCtrl as producer"
+    # .otherwise
+    #   redirectTo: "/"
 
     @locationProvider.html5Mode(true)
 

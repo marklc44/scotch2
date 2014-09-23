@@ -49,19 +49,41 @@ class ResultsCtrl
 
 
 
-# saved comments as a template for creating the
-# next controller
 class ShowWhiskyCtrl
 
   constructor: (@scope, @Whisky, routeParams) ->
-    @whisky = {}
+    console.log "whisky controller loaded"
+    @scope.whisky = {}
     @id = routeParams.id
 
     @Whisky.get {id: @id}, (data) =>
       console.log data
-      @whisky = data
+      @scope.whisky = data
 
+
+class ShowProducerCtrl
+
+  constructor: (@scope, @Producer, routeParams) ->
+    console.log "producer controller loaded"
+    @scope.producer = {}
+    @id = routeParams.id
+
+    @Producer.get {id: @id}, (data) =>
+      console.log "producer", data
+      @scope.producer = data
 
 AppCtrls.controller "ResultsCtrl", ["$scope", "Whisky", "Region", "RegionsWhiskies", ResultsCtrl]
 # saved this as example of how to add another controller
 AppCtrls.controller "ShowWhiskyCtrl", ["$scope", "Whisky", "$routeParams", ShowWhiskyCtrl]
+
+AppCtrls.controller "ShowProducerCtrl", ["scope", "Producer", "$routeParams", ShowProducerCtrl]
+
+
+
+
+
+
+
+
+
+

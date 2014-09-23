@@ -7,4 +7,4 @@ class RegionsCtrl
       @scope.regions = data
 
 
-AppCtrls.controller "RegionsCtrl", ["$scope", "Region", "RegionsProducers", "RegionsProducersWhiskies", RegionsCtrl]
+AppCtrls.controller "RegionsCtrl", ["$scope", "Region", RegionsCtrl]
