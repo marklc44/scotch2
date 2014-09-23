@@ -22,7 +22,7 @@
       <label class="btn btn-primary" ng-model="results.sortBy" btn-radio="'-rating'" uncheckable>Highest Rated</label>
     </div>
 
-    <button class="btn btn-default pull-right" ng-model="results.showChart" btn-radio="'true'" uncheckable>Show Graph</button>
+    <button class="btn btn-default pull-right" ng-model="results.showChart" btn-radio="'true'" uncheckable>Show Graph</button>{{results.showChart}}
     <div class="chart-wrapper" ng-show="results.showChart">
       <div id="bubble-chart" bubble-chart bubbleChartData="results.whiskies"></div>
       <!-- <div ng-include="'bubble_chart.html'" ng-model="results.whiskies"></div> -->

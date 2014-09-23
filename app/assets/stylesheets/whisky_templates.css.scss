@@ -1,3 +1,40 @@
 // Place all the styles related to the whisky_templates controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chart-wrapper {
+  width: 800px;
+  height: 520px;
+  overflow: hidden;
+  background: #ccc;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px #999;
+  position: absolute;
+  top: -20%;
+  left: 20%;
+  .title {
+    margin: 1em;
+  }
+  div.sideBar {
+    width: 180px;
+    font-size: 14px;
+    height: 520px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background:#34495E;
+    color: white;
+    padding: 2em;
+    a.sidebar {
+      display: block;
+      margin-bottom: 1em;
+    }
+  }
+}
+
+.bubbles {
+  .node-label {
+    font-size: 12px;
+    display: block;
+  }
+}

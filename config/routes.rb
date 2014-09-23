@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   # resources :sessions
   resources :whiskies
   resources :whisky_templates
+
   resources :regions
 
   # get "/producers", to: "producers#index"

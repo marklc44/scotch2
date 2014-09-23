@@ -23,9 +23,9 @@
     </div>
 
     <button class="btn btn-default pull-right" ng-model="results.showChart" btn-radio="'true'" uncheckable>Show Graph</button>
+
     <div class="chart-wrapper" ng-show="results.showChart">
-     <!--  <div id="bubble-chart" bubble-chart bubbleChartData="results.whiskies"></div> -->
-      <!-- <div ng-include="'bubble_chart.html'" ng-model="results.whiskies"></div> -->
+      <div ng-controller="ResultsCtrl" id="bubble-chart" bubble-chart="whiskies"></div>
     </div>
 
     <div class="results-filters">

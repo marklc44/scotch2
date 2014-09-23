@@ -29,17 +29,17 @@
 
 #   }
 
-ScotchApp.directive "bubbleChart", () ->
-  return {
-    restrict: "A",
-    scope: {
-        data: "=bubbleChartData"
-        },
-    templateUrl: "bubble_chart.html",
-    link: ($scope, element, attrs) ->
-        console.log "attrs", attrs
-        console.log "element", element
-        console.log "scope", $scope.data
+# ScotchApp.directive "bubbleChart", () ->
+#   return {
+#     restrict: "A",
+#     scope: {
+#         data: "=bubbleChartData"
+#         },
+#     templateUrl: "bubble_chart.html",
+#     link: ($scope, element, attrs) ->
+#         console.log "attrs", attrs
+#         console.log "element", element
+#         console.log "scope", $scope.data
       # width = 600
       # height = 400
       # data = $scope.data
@@ -83,7 +83,7 @@ ScotchApp.directive "bubbleChart", () ->
       # d3.selectAll('g.tick')
       #   .attr('font-size', '.85em')
 
-  }
+  # }
 
 
 

@@ -15,6 +15,7 @@ class ResultsCtrl
     @Whisky.query (data) =>
       console.log(data)
       @whiskies = data
+      @scope.whiskies = data
 
   # call getWhiskies when filtering or sorting the results
   # to get results not included in the limitTo
@@ -22,6 +23,7 @@ class ResultsCtrl
     @Whisky.query (data) =>
       console.log(data)
       @whiskies = data
+      @scope.whiskies = data
 
   getRegionWhiskies: (region_id) =>
     console.log "region clicked"
@@ -29,6 +31,7 @@ class ResultsCtrl
       console.log "region-whiskies", data
       @showRegionDescModal(region_id)
       @whiskies = data
+      @scope.whiskies = data
 
   showRegionDescModal: (region_id) =>
     @showRegionDesc =[]

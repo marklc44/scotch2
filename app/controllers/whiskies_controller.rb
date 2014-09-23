@@ -15,16 +15,12 @@ class WhiskiesController < ApplicationController
   end
 
   def show
-    puts "*"*50
-    puts "ooops!"
-    sleep(1)
     respond_with Whisky.find_by_id(params[:id]).to_json(:include => [:producer, :region])
   end
 
   private
 
   def render_layout_if_html
-    puts "*"*500
     if request.format.symbol == :html
       render "layouts/application"
     end
