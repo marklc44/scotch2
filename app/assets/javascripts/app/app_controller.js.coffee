@@ -28,10 +28,11 @@ class ResultsCtrl
   getRegionWhiskies: (region_id) =>
     console.log "region clicked"
     @RegionsWhiskies.query {id: region_id}, (data) =>
-      console.log "region-whiskies", data
+
       @showRegionDescModal(region_id)
       @whiskies = data
       @scope.whiskies = data
+      console.log "scope after region whiskies", @scope.whiskies
 
   showRegionDescModal: (region_id) =>
     @showRegionDesc =[]

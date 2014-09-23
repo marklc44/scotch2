@@ -5,31 +5,23 @@ ScotchApp.directive("bubbleChart", function() {
   return {
     restrict: "A",
     scope: {
-      whiskyData: '=bubbleChart'
+      whiskyData: '=bubbleChart',
+      show: '=ngShow'
     },
     template: '<div class="title"><h2>Most Expensive Scotch</h2><p>Charted by rating and age</p><div id="bubble-canvas"></div></div>',
     link: function($scope, element, attrs) {
 
-      console.log("scope")
       console.log("element", element)
-      console.log("attrs", attrs)
+      console.log("attrs", attrs.ngShow)
 
-      $scope.$watch('whiskyData', function(value) {
-        console.log("whiskyData watcher: ", value);
+      var drawGraph = function(value) {
 
-        var data = [];
-        if(value !== "undefined") {
-          value.forEach(function(item, i) {
-            if(i < 10) {
-              data.push(item);
-            }
-          })
-        }
+        console.log("initial value: ", value)
+        var data = value.slice(0, 10);
+
         console.log("data caught!", data)
         var width = 600,
         height = 400;
-        // clear the canvas each time
-        d3.select('svg').remove();
 
         var canvas = d3.select('#bubble-canvas')
           .append('svg')
@@ -48,14 +40,14 @@ ScotchApp.directive("bubbleChart", function() {
             })
           ]);
         var yRange = d3.scale.linear().range([20, 300]).domain([
-            d3.min(data, function(d) {
+            d3.max(data, function(d) {
               return d.age;
             }),
-            d3.max(data, function(d) {
+            d3.min(data, function(d) {
               return d.age;
             })
           ]);
-
+        // jack danger, square
         // also maybe create my own axes
         // these look crappy
         var xAxis = d3.svg.axis().scale(xRange);
@@ -73,6 +65,8 @@ ScotchApp.directive("bubbleChart", function() {
 
         var circles = canvas.selectAll('circle').data(data);
 
+        // separate the animations so they can be triggered on
+        // showing the modal
         circles.enter()
           .insert('circle')
           // can start them all in one place and transition them
@@ -84,7 +78,7 @@ ScotchApp.directive("bubbleChart", function() {
           .attr('r', function(d) { return 10; })
           .transition()
           .duration(1000)
-          .attr('r', function(d) { return d.price / (width - 100);})
+          .attr('r', function(d) { return d.price / (width - 500);})
           .attr('cx', function(d) { return xRange(d.rating); })
           .attr('cy', function(d) { return yRange(d.age); })
           .attr('fill', function(d) { return 'rgba(' + (d.producer_id * 20) + ',' + (d.producer_id* 10) + ',' +  (d.producer_id * 40) + ',0.8)'; })
@@ -92,10 +86,19 @@ ScotchApp.directive("bubbleChart", function() {
           .transition()
           .duration(2000)
           .delay(500)
-          .attr('r', function(d) { return d.price / (width - 100);})
+          .attr('r', function(d) {
+            if(d.price / (width - 500) > 100) {
+              return (d.price / (width - 500)) - 50;
+            } else if(d.price / (width - 500) < 5) {
+              return 5;
+            } else {
+              return d.price / (width - 500);
+            }
+
+          })
           .transition()
           .duration(500)
-          .attr('r', function(d) {return d.price / (width - 50);})
+          //.attr('r', function(d) {return (d.price / (width - 500) > 1) ? d.price / (width - 500) : 1;})
 
         circles.append('text')
           .attr('fill', 'black')
@@ -104,7 +107,6 @@ ScotchApp.directive("bubbleChart", function() {
           .attr('class', 'node-label')
           .text(function(d) { return d.name; });
 
-
         var sideBar = d3.select('#bubble-canvas').append('div')
           .attr('class', 'sideBar');
 
@@ -112,12 +114,23 @@ ScotchApp.directive("bubbleChart", function() {
 
         sideBarElements.enter()
           .append('a')
-          // .attr('right', 10)
-          // .attr('top', function(d, i) { return i * 20; })
           .attr('class', 'sidebar')
           .append('text')
           .text(function(d) { return d.name; })
-      }); // end whiskyData watcher
+
+        return circles;
+      };
+
+      $scope.$watch("whiskyData", function(value){
+        console.log("changed", value)
+
+        element.empty();
+        element.append('<div class="title"><h2>Most Expensive Scotch</h2><p>Charted by rating and age</p><div id="bubble-canvas"></div>')
+        var circles = drawGraph(value);
+        window.circs = circles;
+
+      });
+
     } // end link
   }
 

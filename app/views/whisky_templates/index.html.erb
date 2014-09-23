@@ -9,7 +9,13 @@
         <div ng-repeat="region in regions" class="{{region.name}}">
           <h3>{{region.name}}</h3>
           <div ng-include="'/images/' + region.name + '.svg'" ng-click="results.getRegionWhiskies(region.id)" class="region-img"></div>
-          <div class="overlay overlay-{{region.name}}" ng-show="results.showRegionDesc[{{region.id}}]" ng-click="results.hideRegionDescModal()">{{region.description}}</div>
+          <div class="overlay overlay-{{region.name}}" ng-show="results.showRegionDesc[{{region.id}}]" ng-click="results.hideRegionDescModal()">
+            <div class="text">
+            <h3>{{region.name}}</h3>
+              <p>{{region.description}}</p>
+            </div>
+            <div ng-include="'/images/' + region.name + '.svg'" ng-click="results.getRegionWhiskies(region.id)" class="region-img small"></div>
+          </div>
         </div>
       </div>
     </div><!-- /.col -->
@@ -24,9 +30,7 @@
 
     <button class="btn btn-default pull-right" ng-model="results.showChart" btn-radio="'true'" uncheckable>Show Graph</button>
 
-    <div class="chart-wrapper" ng-show="results.showChart">
-      <div ng-controller="ResultsCtrl" id="bubble-chart" bubble-chart="whiskies"></div>
-    </div>
+    <div class="chart-wrapper" id="bubble-chart" bubble-chart="whiskies" ng-show="results.showChart"></div>
 
     <div class="results-filters">
 

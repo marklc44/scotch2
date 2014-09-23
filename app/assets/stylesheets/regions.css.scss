@@ -18,6 +18,7 @@ $water: rgba(34, 167, 240, 1.0);
       position: absolute;
       top: 15%;
       right: 40.5%;
+      z-index: 700;
       .region-img {
         width: 200%;
         .svg {
@@ -29,6 +30,7 @@ $water: rgba(34, 167, 240, 1.0);
       position: absolute;
       top: -9%;
       right: 52.5%;
+      z-index: 1;
       .region-img {
         width: 370%;
         .svg {
@@ -42,6 +44,7 @@ $water: rgba(34, 167, 240, 1.0);
       right: 46.25%;
       .region-img {
         width: 290%;
+        z-index: 10;
         .svg {
           fill: #34495E;
         }
@@ -51,8 +54,10 @@ $water: rgba(34, 167, 240, 1.0);
       position: absolute;
       top: 70%;
       left: 42.5%;
+      z-index: 50;
       .region-img {
         width: 15%;
+
         .svg {
           fill: #3A539B;
         }
@@ -62,8 +67,10 @@ $water: rgba(34, 167, 240, 1.0);
       position: absolute;
       top: 58%;
       left: 38.75%;
+      z-index: 100;
       .region-img {
         width: 82%;
+
         .svg {
           fill: #674172;
         }
@@ -73,6 +80,7 @@ $water: rgba(34, 167, 240, 1.0);
       position: absolute;
       top: -2%;
       left: 32%;
+      z-index: 20;
       h3 {
         margin-top: 0;
       }
@@ -93,6 +101,16 @@ $water: rgba(34, 167, 240, 1.0);
       color: #666;
       padding: 1em;
       border-radius: 4px;
+      z-index: 99999;
+      text-align: left;
+      .text {
+        float: left;
+        width: 75%;
+      }
+      .region-img.small {
+        width: 20%;
+        float: right;
+      }
     }
 
   }
