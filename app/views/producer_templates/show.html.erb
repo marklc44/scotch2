@@ -1,28 +1,33 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
-      <button class="btn btn-default">Back to list</button>
+      <a class="btn btn-default" href="/">Back to list</a>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-4 info">
-      <h2>{{producer.name}}</h2>
-      <p>{{producer.region.name}}</p>
-      <!-- this may not be available -->
-      <p>{{producer.flavorData.broad_keyword1}} | {{producer.flavorData.broad_keyword2}}</p>
-      <p><a href="javascript:void(0)">More info on Whisky Advocate</a></p>
+      <div class="producer-image-wrapper">
+        <img src="{{producer.image_url}}" alt="{{producer.name}}">
+      </div>
+      <div class="producer-text-wrapper">
+        <h2><a href="{{producer.url}}">{{producer.name}}</a></h2>
+        <p>{{producer.region.name}}</p>
+        <p><a href="http://whiskyadvocate.com/ratings-reviews/?brand_id={{producer.wa_brand_id}}&rating=0&price=0&category_id=0&issue_id=0&reviewer=0" target="_blank">More info on Whisky Advocate</a></p>
+      </div>
+
     </div><!-- /.col -->
 
-    <div class="col-xs-2">
+    <div class="col-sm-8 flavor-graph-bg">
       <div class="flavor-graph">
-        {{producer.flavorNums[0][0]}}
-        <div ng-repeat="item in producer.flavorNums" class="drop drop" data-value="" data-key="">
+        <div ng-repeat="item in flavorNums" class="drop drop{{item[1]}} move-drops" data-value="{{item[1]}}" data-key="{{item[0]}}">
             <span class="dataValue">{{item[1]}}</span>
             <span class="dataLabel">{{item[0]}}</span>
         </div>
+
       </div>
     </div><!-- /.col -->
   </div><!-- /.row -->
+
   <div class="row">
     <div class="col-sm-12">
       <!-- make this a directive -->
@@ -36,7 +41,7 @@
         <th>Price</th>
       </thead>
       <tbody>
-        <tr ng-repeat="whisky in producer.whiskies | orderBy: whisky.rating">
+        <tr ng-repeat="whisky in visibleWhiskies | orderBy: whisky.rating">
           <td>{{producer.region.name}}</td>
           <td>{{producer.name}}</td>
           <td><a href="/whiskies/{{whisky.id}}">{{whisky.name}}</a></td>
@@ -45,54 +50,18 @@
         </tr>
       </tbody>
     </table>
-    <pagination total-items="producers.producers.whiskies.length" ng-model="results.currentPage" max-size="10" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" ng-change="results.setPage(results.currentPage)"></pagination>
+
+    <pagination total-items="totalItems" ng-model="currentPage" max-size="10" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" ng-change="producer.setPage(currentPage)"></pagination>
+
+
+    {{currentPage}} | {{totalItems}}
     </div>
   </div>
 </div><!-- /.container -->
 
 <script>
 
-  var $drops = $('.drop');
-  console.log($drops);
+$('.drop').delay(2000).addClass('slideDown');
 
-  var positionDrops = function() {
-    var lastVal = [];
-    var y = 0;
-    $drops.each(function(index) {
-      var x = 0;
-      var value = parseInt($(this).attr('data-value'));
-      $this = $(this);
-
-      if (value === 0) {
-        $this.css('display', 'none');
-      } else if (value === 4) {
-        y += value * 5;
-        x = 0;
-      } else if (value === 1) {
-        y += 0;
-        x = 0;
-      } else if (value === 2) {
-        y += value;
-        x = 0;
-      } else {
-        y += 15;
-        x = 0;
-      }
-
-      if (lastVal.indexOf(value)) {
-        y += 30;
-      }
-
-      $this.css('transform', 'translate3d('+ x + 'px,0px,0)');
-      $this.css('transform', 'translate3d('+ x + 'px,' + y + 'px,0)');
-      $('.dataLabel').css('opacity', '1');
-      $('.dataValue').css('opacity', '1');
-      lastVal.push(value);
-    });
-  };
-
-
-
-  window.setTimeout(positionDrops, 2000);
 
 </script>

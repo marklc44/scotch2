@@ -4,7 +4,8 @@ var ScotchApp = angular.module("ScotchApp", [
   "AppFactories",
   "ui.bootstrap",
   "AppFilters",
-  "ui.scroll"
+  "ui.scroll",
+  "ngAnimate"
 ]);
 
 var AppCtrls = angular.module("AppCtrls", []);

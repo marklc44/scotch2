@@ -14,8 +14,6 @@ class ResultsCtrl
     # @scope.currentPage = 1
 
     @scope.maxSize = 10;
-    # @scope.bigTotalItems = 175;
-    # @scope.bigCurrentPage = 1;
 
     @Whisky.query (data) =>
       console.log(data)
@@ -23,8 +21,6 @@ class ResultsCtrl
       @scope.whiskies = data
       @visibleWhiskies = data
 
-  # call getWhiskies when filtering or sorting the results
-  # to get results not included in the limitTo
   getAllWhiskies: =>
     @Whisky.query (data) =>
       console.log(data)
@@ -81,31 +77,53 @@ class ShowProducerCtrl
     @scope.producer = {}
     @id = routeParams.id
     @flavorData = {}
+    @scope.producer.whiskies = []
+
     @flavorNums = []
-    @flavorNumObjs = []
+
+    # pagination
+    @scope.currentPage = 1
+    @scope.totalItems = @scope.producer.whiskies.length
+    @scope.maxSize = 10;
 
     @Producer.get {id: @id}, (data) =>
       console.log "producer", data
       @scope.producer = data
+      @scope.totalItems = @scope.producer.whiskies.length
+      @scope.visibleWhiskies = @scope.producer.whiskies
+      window.visibleWhiskies = @scope.visibleWhiskies
       @flavorData = data.flavor_profile
-      # @filterFlavors()
-      # console.log @flavorNums
+      @filterFlavors()
 
   filterFlavors: () =>
     # filter and sort flavor data
     excludes = ["broad_keyword1", "broad_keyword2", "id", "created_at", "updated_at", "flavored_id", "flavored_type"]
+    console.log @flavorData
+
     for key of @flavorData
+      console.log key
       obj = []
       if excludes.indexOf(key) == -1 && @flavorData[key] != 0
         obj.push(key)
         obj.push(@flavorData[key])
+        console.log obj
         @flavorNums.push(obj)
-
     @flavorNums.sort (a, b) =>
       a[1] - b[1]
-    console.log @flavorNums
+
+    @scope.flavorNums = @flavorNums
 
 
+  # pagination
+  setPage: (pageNo) =>
+    console.log "page set"
+    @scope.currentPage = pageNo
+    @setOffset()
+
+  setOffset: =>
+    console.log "setting page"
+    thisPage = @scope.currentPage - 1
+    @scope.visibleWhiskies = @scope.producer.whiskies.slice(thisPage * 10, thisPage * 10 + 10)
 
 
 AppCtrls.controller "ResultsCtrl", ["$scope", "Whisky", "Region", "RegionsWhiskies", ResultsCtrl]

@@ -4,26 +4,41 @@
 
 $orange: orange;
 $trans-white: white;
+$curious-blue: rgba(52, 152, 219, 1.0);
+$ebony: rgba(34, 49, 63, 1.0);
+
 // -- Whisky Profile Show --
+
+.info {
+  background: #999;
+}
 .producer-img-wrapper {
   overflow: hidden;
+  float: left;
+  width: 20%;
   .producer-img {
     width: 150px;
   }
+}
+.producer-text-wrapper {
+  float: left;
+  width: 80%;
 }
 html .flavor-graph {
   color: none;
 }
 
+.flavor-graph-bg {
+  background: $curious-blue;
+  padding: 4em 3em 4em 2em;
+}
+
 .flavor-graph {
-  width: 100px;
+  width: 100%;
   text-align: center;
-  position: relative;
   height: 450px;
   text-align: center;
   position: relative;
-  margin:0 20%;
-  margin-top: -50px;
   color: white;
 }
 .drop {
@@ -35,7 +50,7 @@ html .flavor-graph {
   margin: 0 auto;
   margin-top: -10px;
   padding-top: .75em;
-  position: absolute;
+  position: relative;
   top: 0;
   transition: all 2s ease;
   -webkit-transition: all 2s ease;
@@ -46,8 +61,11 @@ html .flavor-graph {
     display: block;
     margin-left: 100px;
     margin-top: -18px;
+    right: 0;
     opacity: 0;
     color: white;
+    position: relative;
+    top: 0;
     transition: all 2.3s ease;
     -webkit-transition: all 4.3s ease;
     -moz-transition: all 2.3s ease;
@@ -75,16 +93,18 @@ html .flavor-graph {
     display: none;
   }
   &.drop1 {
+    width: 30px;
+    height: 30px;
     padding: 0;
-    top: 40px;
-    left: 40px;
+    top: 25px;
+    left: 30px;
     .dataLabel {
       margin-left: 90px;
     }
   }
   &.drop2 {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     top: 30px;
     left: 30px;
     .dataLabel {
@@ -92,30 +112,62 @@ html .flavor-graph {
     }
   }
   &.drop3 {
-    height: 60px;
-    width: 60px;
+    height: 70px;
+    width: 70px;
     top: 20px;
-    left: 20px;
+    left: 30px;
     .dataLabel {
-      margin-left: 110px;
+      margin-left: 120px;
     }
   }
   &.drop4 {
-    height: 80px;
-    width: 80px;
-    top: 10px;
-    left: 10px;
+    height: 100px;
+    width: 100px;
+    top: 20px;
+    left: 30px;
     padding: 2em;
     .dataLabel {
       margin-left:90px;
     }
   }
   &.drop5 {
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    width: 120px;
     top: 0;
     .dataLabel {
     }
   }
 
+}
+
+.slideDown {
+  position: relative;
+  opacity: 0.75;
+  top: 50px;
+  height: 0px;
+  .dataValue {
+    opacity: 1;
+  }
+  .dataLabel {
+    opacity: 1;
+  }
+}
+
+.slideDown-enter,
+.slideDown-leave
+{
+    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
+    display: block;
+}
+
+.slideDown-enter.slideDown-enter-active,
+.slideDown-leave {
+    opacity: 0.5;
+    top: 50px;
+    height: 30px;
 }
