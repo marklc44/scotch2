@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'deals/show'
+
   get 'flavor_profiles/index'
 
   get 'flavor_profiles/show'
@@ -23,6 +25,7 @@ Rails.application.routes.draw do
   # get "/whiskies/:id", to: "whiskies#show"
   get "/producers/:id", to: "producers#show"
   get "/regions/:id/whiskies", to: "regions#show"
+  get "/deals", to: "deals#show"
 
   # match "*path", to: "sites#index", via: "get"
 end

@@ -9,7 +9,6 @@ class WhiskiesController < ApplicationController
     if params[:producer_id]
       respond_with Whisky.find_by_producer_id(params[:producer_id]).to_json(:include => (:whiskies))
     else
-      # respond_with Whisky.all.includes(:producer)
       respond_with Whisky.all.to_json(:include => [:producer, :region])
     end
   end
