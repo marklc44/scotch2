@@ -10,12 +10,18 @@ class ResultsCtrl
 
     # pagination
     @currentPage = 1
-    @offset = 0
+    @scope.totalItems = @whiskies.length
+    @scope.currentPage = 1
+
+    @scope.maxSize = 10;
+    # @scope.bigTotalItems = 175;
+    # @scope.bigCurrentPage = 1;
 
     @Whisky.query (data) =>
       console.log(data)
       @whiskies = data
       @scope.whiskies = data
+      @visibleWhiskies = data
 
   # call getWhiskies when filtering or sorting the results
   # to get results not included in the limitTo
@@ -24,6 +30,7 @@ class ResultsCtrl
       console.log(data)
       @whiskies = data
       @scope.whiskies = data
+      @visibleWhiskies = data
 
   getRegionWhiskies: (region_id) =>
     console.log "region clicked"
@@ -32,7 +39,7 @@ class ResultsCtrl
       @showRegionDescModal(region_id)
       @whiskies = data
       @scope.whiskies = data
-      console.log "scope after region whiskies", @scope.whiskies
+      @visibleWhiskies = data
 
   showRegionDescModal: (region_id) =>
     @showRegionDesc =[]
@@ -46,10 +53,11 @@ class ResultsCtrl
   setPage: (pageNo) =>
     console.log pageNo
     @currentPage = pageNo
-    @setOffset()
+    @scope.currentPage = pageNo
+    @setOffset(pageNo)
 
   setOffset: =>
-    @offset = @currentPage * 10
+    @visibleWhiskies = @whiskies.slice(@currentPage * 10, @currentPage * 10 + 10)
 
 
 

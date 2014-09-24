@@ -25,6 +25,8 @@
     background:#34495E;
     color: white;
     padding: 2em;
+    transition: all 0.5s ease;
+    font-size: 12px;
     a.sidebar {
       display: block;
       margin-bottom: 1em;
@@ -38,3 +40,24 @@
     display: block;
   }
 }
+.bubble {
+  stroke: none;
+  stroke-width: 0;
+  transition: all 0.5s ease;
+}
+
+.highlight {
+  stroke: white;
+  stroke-width: 5;
+}
+.text-highlight {
+  color: yellow;
+}
+
+
+
+
+
+
+
+

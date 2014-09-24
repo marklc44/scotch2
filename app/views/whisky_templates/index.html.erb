@@ -44,7 +44,7 @@
         <th>Price</th>
       </thead>
       <tbody>
-        <tr ng-repeat="whisky in results.whiskies | limitTo: 10 | offset: results.currentPage | orderBy: results.sortBy">
+        <tr ng-repeat="whisky in results.visibleWhiskies | limitTo: 10 | offset: results.currentPage | orderBy: results.sortBy">
           <td>{{whisky.region.name}}</td>
           <td><a href="/producers/{{whisky.producer.id}}">{{whisky.producer.name}}</a></td>
           <td><a href="/whiskies/{{whisky.id}}">{{whisky.name}}</a></td>
@@ -54,6 +54,7 @@
       </tbody>
     </table>
     <pagination total-items="results.whiskies.length" ng-model="results.currentPage" max-size="10" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" ng-change="results.setPage(results.currentPage)"></pagination>
+    {{currentPage}}
     </div><!-- /.col -->
   </div><!-- /.row -->
 </div><!-- /.container -->

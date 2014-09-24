@@ -63,6 +63,7 @@ ScotchApp.directive("bubbleChart", function() {
         d3.selectAll('g.tick')
           .attr('font-size', '.85em')
 
+
         var circles = canvas.selectAll('circle').data(data);
 
         // separate the animations so they can be triggered on
@@ -71,14 +72,23 @@ ScotchApp.directive("bubbleChart", function() {
           .insert('circle')
           // can start them all in one place and transition them
           // with physics related tweening
-          .attr('class', 'bubble')
+          .attr('class', function(d){ return "bubble id" + d.id})
+          .attr('data-id', function(d) {return d.id})
           .attr('cx', 300)
           .attr('cy', 200)
           .attr('fill', 'steelblue')
           .attr('r', function(d) { return 10; })
           .transition()
           .duration(1000)
-          .attr('r', function(d) { return d.price / (width - 500);})
+          .attr('r', function(d) {
+            if(d.price / (width - 500) > 100) {
+              return (d.price / (width - 500)) - 60;
+            } else if(d.price / (width - 500) < 5) {
+              return 4;
+            } else {
+              return d.price / (width - 450);
+            }
+          })
           .attr('cx', function(d) { return xRange(d.rating); })
           .attr('cy', function(d) { return yRange(d.age); })
           .attr('fill', function(d) { return 'rgba(' + (d.producer_id * 20) + ',' + (d.producer_id* 10) + ',' +  (d.producer_id * 40) + ',0.8)'; })
@@ -114,9 +124,11 @@ ScotchApp.directive("bubbleChart", function() {
 
         sideBarElements.enter()
           .append('a')
-          .attr('class', 'sidebar')
+          .attr('class', function(d){ return "sidebar id" + d.id})
+          .attr('data-id', function(d) {return d.id})
+          .attr('href', function(d) {return "/whiskies/" + d.id})
           .append('text')
-          .text(function(d) { return d.name; })
+          .text(function(d) { return d.name + " | $" + d.price; });
 
         return circles;
       };
@@ -129,7 +141,40 @@ ScotchApp.directive("bubbleChart", function() {
         var circles = drawGraph(value);
         window.circs = circles;
 
+        $('a.sidebar').hover(function() {
+        var id = $(this).attr("data-id");
+        console.log("highlighted")
+        $('.bubble').css('stroke', 'none').css('stroke-width', '0')
+        $('.bubble').each(function() {
+          if($(this).attr("data-id") === id) {
+            $(this).css('stroke', 'yellow').css('stroke-width', 8);
+          }
+        })
+      }, function() {
+          $('.bubble').css('stroke-width', 0);
+        });
+
+      $('.bubble').hover(function() {
+        var id = $(this).attr("data-id");
+        $('a.sidebar').each(function() {
+          if($(this).attr("data-id") === id) {
+            $(this).toggleClass('text-highlight')
+          }
+        });
       });
+
+      $('.bubble').click(function() {
+        var id = $(this).attr("data-id");
+        $('a.sidebar').each(function() {
+          if($(this).attr("data-id") === id) {
+            $(this).toggleClass('text-highlight')
+          }
+        });
+      });
+
+      }); // end watch
+
+
 
     } // end link
   }
