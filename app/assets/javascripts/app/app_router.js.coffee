@@ -16,7 +16,7 @@ class Router
         templateUrl: "/whisky_templates/show",
         contoller: "ShowWhiskyCtrl as whisky"
       .when "/producers/:id",
-        templateUrl: "/producer_templates/show.html",
+        templateUrl: "/producer_templates/show",
         controller: "ShowProducerCtrl as producer"
     # .otherwise
     #   redirectTo: "/"

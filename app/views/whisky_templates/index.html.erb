@@ -3,7 +3,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
-      <h1>SitesTemplates#index</h1>
+
 
       <div class="regions map" ng-controller="RegionsCtrl">
         <div ng-repeat="region in regions" class="{{region.name}}">
@@ -54,7 +54,6 @@
       </tbody>
     </table>
     <pagination total-items="results.whiskies.length" ng-model="results.currentPage" max-size="10" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" ng-change="results.setPage(results.currentPage)"></pagination>
-    {{currentPage}}
     </div><!-- /.col -->
   </div><!-- /.row -->
 </div><!-- /.container -->

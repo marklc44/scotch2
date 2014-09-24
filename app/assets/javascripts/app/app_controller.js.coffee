@@ -80,16 +80,39 @@ class ShowProducerCtrl
     console.log "producer controller loaded"
     @scope.producer = {}
     @id = routeParams.id
+    @flavorData = {}
+    @flavorNums = []
+    @flavorNumObjs = []
 
     @Producer.get {id: @id}, (data) =>
       console.log "producer", data
       @scope.producer = data
+      @flavorData = data.flavor_profile
+      # @filterFlavors()
+      # console.log @flavorNums
+
+  filterFlavors: () =>
+    # filter and sort flavor data
+    excludes = ["broad_keyword1", "broad_keyword2", "id", "created_at", "updated_at", "flavored_id", "flavored_type"]
+    for key of @flavorData
+      obj = []
+      if excludes.indexOf(key) == -1 && @flavorData[key] != 0
+        obj.push(key)
+        obj.push(@flavorData[key])
+        @flavorNums.push(obj)
+
+    @flavorNums.sort (a, b) =>
+      a[1] - b[1]
+    console.log @flavorNums
+
+
+
 
 AppCtrls.controller "ResultsCtrl", ["$scope", "Whisky", "Region", "RegionsWhiskies", ResultsCtrl]
 # saved this as example of how to add another controller
 AppCtrls.controller "ShowWhiskyCtrl", ["$scope", "Whisky", "$routeParams", ShowWhiskyCtrl]
 
-AppCtrls.controller "ShowProducerCtrl", ["scope", "Producer", "$routeParams", ShowProducerCtrl]
+AppCtrls.controller "ShowProducerCtrl", ["$scope", "Producer", "$routeParams", ShowProducerCtrl]
 
 
 

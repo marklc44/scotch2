@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$curious-blue: rgba(52, 152, 219, 1.0);
+$ebony: rgba(34, 49, 63, 1.0);
+
+.page-header {
+  background: $ebony;
+  color: white;
+  width: 100%;
+  margin: 0;
+  padding: 1em;
+  .logo {
+    margin: 0 auto;
+    font-size: 3em;
+    text-align: center;
+  }
+}
 .chart-wrapper {
   overflow: hidden;
 }

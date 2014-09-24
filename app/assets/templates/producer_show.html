@@ -1,1 +1,21 @@
-<h1>Show one producer profile</h1>
+<div class="row">
+  <div class="col-sm-12">
+    <button class="btn btn-default">Back to list</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4 info">
+    <h2>{{producer.producer.name}}</h2>
+    <p>{{producer.producer.region.name}}</p>
+  </div><!-- /.col -->
+
+  <div class="col-xs-2">
+    <div class="flavor-graph">
+      <div ng-repeat="(key, val) in producer.producer.flavor_profile" class="drop drop" data-value="" data-key="">
+          <span class="dataValue">{{val}</span>
+          <span class="dataLabel">{{key}}</span>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.col -->
+</div><!-- /.row -->

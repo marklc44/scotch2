@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 
 
+  get 'flavor_profiles/index'
+
+  get 'flavor_profiles/show'
+
   get 'producer_templates/show'
 
   root to: "whiskies#index"
