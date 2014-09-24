@@ -9,9 +9,9 @@ class ResultsCtrl
     @showChart = false
 
     # pagination
-    @currentPage = 1
+    @currentPage = 0
     @scope.totalItems = @whiskies.length
-    @scope.currentPage = 1
+    # @scope.currentPage = 1
 
     @scope.maxSize = 10;
     # @scope.bigTotalItems = 175;
@@ -54,10 +54,11 @@ class ResultsCtrl
     console.log pageNo
     @currentPage = pageNo
     @scope.currentPage = pageNo
-    @setOffset(pageNo)
+    @setOffset()
 
   setOffset: =>
-    @visibleWhiskies = @whiskies.slice(@currentPage * 10, @currentPage * 10 + 10)
+    thisPage = @currentPage - 1
+    @visibleWhiskies = @whiskies.slice(thisPage * 10, thisPage * 10 + 10)
 
 
 

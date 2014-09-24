@@ -30,7 +30,7 @@
 
     <button class="btn btn-default pull-right" ng-model="results.showChart" btn-radio="'true'" uncheckable>Show Graph</button>
 
-    <div class="chart-wrapper" id="bubble-chart" bubble-chart="whiskies" ng-show="results.showChart"></div>
+    <div class="chart-wrapper" id="bubble-chart" bubble-chart="results.visibleWhiskies" ng-show="results.showChart"></div>
 
     <div class="results-filters">
 
@@ -44,7 +44,7 @@
         <th>Price</th>
       </thead>
       <tbody>
-        <tr ng-repeat="whisky in results.visibleWhiskies | limitTo: 10 | offset: results.currentPage | orderBy: results.sortBy">
+        <tr ng-repeat="whisky in results.visibleWhiskies | limitTo: 10 | orderBy: results.sortBy">
           <td>{{whisky.region.name}}</td>
           <td><a href="/producers/{{whisky.producer.id}}">{{whisky.producer.name}}</a></td>
           <td><a href="/whiskies/{{whisky.id}}">{{whisky.name}}</a></td>

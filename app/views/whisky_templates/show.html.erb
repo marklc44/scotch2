@@ -1,2 +1,29 @@
-<h1>WhiskyTemplates#show</h1>
-<p>Find me in app/views/whisky_templates/show.html.erb</p>
+<div class="row">
+  <div class="col-sm-12">
+    <button class="btn btn-default">Back to Search</button>
+  </div>
+</div><!-- /.row -->
+
+<div class="row">
+  <div class="col-sm-6">
+    <div ng-controller="ShowWhiskyCtrl">
+      <h1>Whisky show in public</h1>
+      <div class="info">
+        <h2>{{whisky.name}}</h2>
+        <p>Producer: {{whisky.producer.name}}</p>
+        <p>Region: {{whisky.region.name}}</p>
+        <p>
+          <span class="rating">Rating: {{whisky.rating}}</span> |
+          <span class="age">Age: {{whisky.age}}</span>
+        </p>
+        <button class="btn btn-default">Add to favorites</button>
+      </div>
+    </div>
+  </div><!-- /.col -->
+  <div class="col-sm-6 flavor-profile">
+    <h3>Flavor Profiles</h3>
+    <div ng-repeat="(key, val) in whisky.flavor_profiles">
+      <div>{{key}}: {{val}}</div>
+    </div>
+  </div>
+</div><!-- /.row -->
