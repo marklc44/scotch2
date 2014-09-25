@@ -18,7 +18,7 @@ $water: rgba(34, 167, 240, 1.0);
       position: relative;
       padding: 20%;
       border-radius: 0 0 10px 10px;
-      overflow: hidden;
+      overflow: visible;
       margin: 0 auto;
       .map-bg-svg {
         width: 400px;
@@ -130,7 +130,7 @@ $water: rgba(34, 167, 240, 1.0);
       width: 400px;
       position: absolute;
       top: 10%;
-      left: 20%;
+      left: -30px;
       background: white;
       color: #666;
       padding: 1em;
