@@ -1,26 +1,23 @@
 == README
 
+ScotchyScotchMe
+
 Continuing Scotch Whisky flavor search and data visualization project. Explore Scotch by region, producer, flavor profile, age, price and rating.
 
 This version of the project is an Angular SPA built on Rails with Postgres.
 
-Things you may want to cover:
+See the live site at <a href="http://scotchy.herokuapp.com">scotchy.herokuapp.com</a>.
 
-* Ruby version
+Deal data from Semantics3.
+Whisky Ratings and pricing from Whisky Advocate.
+Graphing with D3js
 
-* System dependencies
+-----------------------------------------------------------
 
-* Configuration
+Explore Scotch more in depth by flavor profiles in my related Nodejs app:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+<a href="http://scotchme.herokuapp.com">ScotchMe</a>
+<a href="https://github.com/marklc44/scotchme">ScotchMe on Github</a>
 
 
 
