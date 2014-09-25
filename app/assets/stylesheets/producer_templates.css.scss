@@ -77,14 +77,14 @@ html .flavor-graph {
       background: lighten($ebony, 20%);
     }
     h3 {
-      transform: rotate(-90deg);
-      color: lighten($ebony, 70%);
-      text-align: left;
-      position: absolute;
-      top: 180px;
-      left: -30px;
-      font-size: 3em;
-      width: 300px;
+      color: white;
+      font-size: 1em;
+      margin-top: 0;
+      text-align: center;
+      height: 100%;
+      line-height: 100%;
+      position: relative;
+      top: 1.8em;
     }
   }
 }
