@@ -7,89 +7,121 @@ $water: rgba(34, 167, 240, 1.0);
 
 .regions {
   &.map {
-    background: $water url(whisky-region-map-bg.svg) center center no-repeat;
-    background-size: auto 100%;
-    width: 100%;
-    height: 600px;
-    text-align: center;
-    color: white;
-    position: relative;
-    padding: 1em;
+    background: $water;
     border-radius: 0 0 10px 10px;
-    .Speyside {
-      position: absolute;
-      top: 15%;
-      right: 40.5%;
-      z-index: 700;
-      .region-img {
-        width: 200%;
-        .svg {
-          fill: #4B77BE;
+    text-align: center;
+    .map-bg {
+      width: 600px;
+      height: 600px;
+      text-align: center;
+      color: white;
+      position: relative;
+      padding: 20%;
+      border-radius: 0 0 10px 10px;
+      overflow: hidden;
+      margin: 0 auto;
+      .map-bg-svg {
+        width: 400px;
+      }
+      .Speyside {
+        position: absolute;
+        top: 112px;
+        right: 98px;
+        z-index: 700;
+        .region-img {
+          width: 195px;
+          .svg {
+            fill: #4B77BE;
+            transition: all 0.5s linear;
+            &:hover {
+              fill: darken(#4B77BE, 10%);
+            }
+          }
         }
       }
     }
     .Highland {
       position: absolute;
-      top: -9%;
-      right: 52.5%;
-      z-index: 1;
+      top: -10px;
+      left: 180px;
+      z-index: 0;
       .region-img {
-        width: 370%;
+        width: 333px;
         .svg {
           fill: #26A65B;
+          transition: all 0.5s linear;
+            &:hover {
+              fill: darken(#26A65B, 10%);
+            }
         }
       }
     }
     .Lowland {
       position: absolute;
-      top: 46%;
-      right: 46.25%;
+      top: 279px;
+      right: 100px;
       .region-img {
-        width: 290%;
-        z-index: 10;
+        width: 240px;
+        z-index: 100;
         .svg {
           fill: #34495E;
+          transition: all 0.5s linear;
+            &:hover {
+              fill: darken(#34495E, 10%);
+            }
         }
       }
     }
     .Campbeltown {
       position: absolute;
-      top: 70%;
-      left: 42.5%;
+      top: 400px;
+      left: 218px;
       z-index: 50;
       .region-img {
-        width: 15%;
+        width: 20px;
 
         .svg {
           fill: #3A539B;
+          transition: all 0.5s linear;
+            &:hover {
+              fill: darken(#3A539B, 10%);
+            }
         }
       }
     }
     .Islay {
       position: absolute;
-      top: 58%;
-      left: 38.75%;
+      top: 340px;
+      left: 175px;
       z-index: 100;
       .region-img {
-        width: 82%;
+        width: 34px;
 
         .svg {
           fill: #674172;
+          transition: all 0.5s linear;
+            &:hover {
+              fill: darken(#674172, 10%);
+            }
         }
       }
     }
     .Islands {
       position: absolute;
-      top: -2%;
-      left: 32%;
+      top: 21px;
+      left: 100px;
       z-index: 20;
       h3 {
         margin-top: 0;
       }
       .region-img {
-        width: 255%;
+        width: 182px;
         .svg {
           fill: #F5AB35;
+          transition: all 0.5s linear;
+            &:hover {
+              fill: darken(#F5AB35, 10%);
+            }
         }
       }
 
