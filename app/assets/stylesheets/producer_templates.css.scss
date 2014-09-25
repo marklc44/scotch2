@@ -34,6 +34,7 @@ $break-small: 600px;
 }
 .info-text {
   padding: 1em;
+  text-align: center;
   h2 {
 
   }
@@ -41,16 +42,14 @@ $break-small: 600px;
 }
 .producer-img-wrapper {
   overflow: hidden;
-  float: left;
-  width: 20%;
+  width: 100%;
   max-width: 150px;
   margin: 0 auto;
   .producer-img {
-    width: 150px;
+    width: 100%;
   }
 }
 .producer-text-wrapper {
-  float: left;
   width: 100%;
 }
 html .flavor-graph {
@@ -79,7 +78,7 @@ html .flavor-graph {
     }
     h3 {
       transform: rotate(-90deg);
-      color: lighten($curious-blue, 30%);
+      color: lighten($ebony, 70%);
       text-align: left;
       position: absolute;
       top: 180px;
