@@ -36,10 +36,17 @@ h2 {
   }
   .logo {
     margin: 0 auto;
-    font-size: 3em;
     text-align: center;
     font-family: 'Racing Sans One', sans-serif;
     padding: 0.33em;
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    h1 {
+      font-size: 4em;
+    }
     p {
       font-family: 'Arimo', sans-serif;
       font-weight: normal;
