@@ -17,32 +17,37 @@ $body: rgba(255, 236, 219, 1.0);
 .profile-buttons {
   width: 100%;
   padding: 1em;
-  background: lighten($ebony, 30%);
+  background: lighten($ebony, 20%);
+  overflow: hidden;
 }
 .info {
-  background: lighten($ebony, 10%) ;
+  background: $ebony;
   padding: 0;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 0 10px;
   color: lighten($curious-blue, 30%);
-  h2 {
-    margin-top: 0;
-  }
+  text-align: center;
+  min-height: 450px;
 }
 .info-text {
   padding: 1em;
+  h2 {
+
+  }
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
 .producer-img-wrapper {
   overflow: hidden;
   float: left;
   width: 20%;
   max-width: 150px;
+  margin: 0 auto;
   .producer-img {
     width: 150px;
   }
 }
 .producer-text-wrapper {
   float: left;
-  width: 80%;
+  width: 100%;
 }
 html .flavor-graph {
   color: none;
@@ -51,10 +56,10 @@ html .flavor-graph {
 .flavor-graph-bg {
   height: 450px;
   border-radius: 0 0 10px 0;
-  background: lighten($curious-blue, 30%);
+  background: lighten($curious-blue, 10%);
   margin-top: 10px;
   .sidebar {
-    background: $curious-blue;
+    background: $ebony;
     width: 20%;
     height: 100%;
     float: left;
