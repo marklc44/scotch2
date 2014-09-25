@@ -23,13 +23,16 @@
 
 <div class="row">
   <div class="col-sm-12">
-    <div class="btn-group">
-      <label class="btn btn-primary" ng-model="results.sortBy" btn-radio="'-price'" uncheckable>Most Expensive</label>
-      <label class="btn btn-primary" ng-model="results.sortBy" btn-radio="'-rating'" uncheckable>Highest Rated</label>
+    <div class="controls">
+      <div class="btn-group">
+        <label class="btn btn-primary" ng-model="results.sortBy" btn-radio="'-price'" uncheckable>Most Expensive</label>
+        <label class="btn btn-primary" ng-model="results.sortBy" btn-radio="'-rating'" uncheckable>Highest Rated</label>
+      </div>
+
+
+      <button class="btn btn-primary pull-right space-left" ng-model="results.showChart" btn-radio="'true'" uncheckable>Show Graph</button>
+      <button class="btn btn-default pull-right" ng-click="results.getAllWhiskies()">Reset Results</button>
     </div>
-
-    <button class="btn btn-default pull-right" ng-model="results.showChart" btn-radio="'true'" uncheckable>Show Graph</button>
-
     <div class="chart-wrapper" id="bubble-chart" bubble-chart="results.visibleWhiskies" ng-show="results.showChart"></div>
 
     <table class="table table-hover">

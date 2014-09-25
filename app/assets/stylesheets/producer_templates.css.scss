@@ -6,11 +6,21 @@ $orange: orange;
 $trans-white: white;
 $curious-blue: rgba(52, 152, 219, 1.0);
 $ebony: rgba(34, 49, 63, 1.0);
+$spray: rgba(129, 207, 224, 1.0);
+$wax: rgba(241, 169, 160, 1.0);
+$superlime: rgba(200, 247, 197, 1.0);
+$body: rgba(255, 236, 219, 1.0);
 
 // -- Whisky Profile Show --
 
 .info {
-  background: #999;
+  background: lighten($ebony, 10%) ;
+  padding: 1em;
+  border-radius: 4px;
+  color: lighten($curious-blue, 30%);
+  h2 {
+    margin-top: 0;
+  }
 }
 .producer-img-wrapper {
   overflow: hidden;

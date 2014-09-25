@@ -5,10 +5,15 @@
 $curious-blue: rgba(52, 152, 219, 1.0);
 $ebony: rgba(34, 49, 63, 1.0);
 $body: rgba(255, 236, 219, 1.0);
+$fountain: rgba(92, 151, 191, 1.0);
 
 body {
   font-family: 'Arimo';
   background: lighten($body, 5%);
+}
+
+h2 {
+  font-family: 'Racing Sans One', sans-serif;
 }
 
 .page-header {
@@ -27,3 +32,24 @@ body {
 .chart-wrapper {
   overflow: hidden;
 }
+.space-left {
+  margin-left: 1em;
+}
+.controls {
+  margin-bottom: 2em;
+}
+.btn {
+  border: none;
+}
+.btn-default {
+  background: $fountain;
+  color: white;
+  &:hover {
+    background: darken($fountain, 10%);
+    color: white;
+  }
+}
+
+
+
+
