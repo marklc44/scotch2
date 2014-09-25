@@ -17,6 +17,7 @@ This version of the project is an Angular SPA built on Rails with Postgres.
 -  Rspec tests
 -  Rake and Nokogiri scraping and data population
 -  ui-angular, custom directives, fun filters, factories and resources
+-  Some [scraping scripts I wrote for this project are outside the repo here](https://github.com/marklc44/sample_scrapers).
 
 -----------------------------------------------------------
 

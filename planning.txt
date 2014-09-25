@@ -1,0 +1,16 @@
+V 0.5.1
+
+Filter and graph on all pages
+Text Search
+Flavor Search
+Auth
+API
+Map quirks
+Revised user flow
+==============================
+Favorite Producers
+Favorite Whiskies
+Add tags, notes, text reviews
+Add flavor profiles
+  -  Simplify the big list of flavor chars
+  -  Add traditional spirit tasting form for collecting decent data
