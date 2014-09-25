@@ -57,10 +57,11 @@ html .flavor-graph {
   color: none;
 }
 
+
 .flavor-graph-bg {
   height: 450px;
   border-radius: 0 0 10px 0;
-  background: lighten($curious-blue, 10%);
+  background: lighten($ebony, 40%);
   margin-top: 10px;
   @media screen and (max-width: $break-small) {
     border-radius: 0;
@@ -71,19 +72,39 @@ html .flavor-graph {
     height: 100%;
     float: left;
     position: relative;
+    .top-bar {
+      height: 60px;
+      width: 100%;
+      background: lighten($ebony, 20%);
+    }
     h3 {
       transform: rotate(-90deg);
       color: lighten($curious-blue, 30%);
       text-align: left;
       position: absolute;
-      top: 60px;
+      top: 180px;
       left: -30px;
       font-size: 3em;
       width: 300px;
     }
   }
 }
-
+.flavor-graph-bg.whisky {
+  margin-top: 0;
+  .sidebar {
+    .h3 {
+      left: -80px;
+    }
+  }
+  .coming-soon {
+    position: absolute;
+    top: 90px;
+    left: 160px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+}
 .flavor-graph {
   width: 100%;
   text-align: center;

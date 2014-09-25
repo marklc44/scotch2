@@ -29,7 +29,8 @@
         <label class="btn btn-primary" ng-model="results.sortBy" btn-radio="'-rating'" uncheckable><i class="fa fa-thumbs-o-up"></i> Highest Rated</label>
       </div>
 
-      <button class="btn btn-primary pull-right space-left" ng-model="results.showChart" btn-radio="'true'" uncheckable><i class="fa fa-area-chart"></i> Show Graph</button>
+      <button class="btn btn-primary pull-right space-left" ng-model="results.showChart" btn-radio="'true'" uncheckable ng-hide="results.showChart"><i class="fa fa-area-chart"></i> Show Graph</button>
+      <button class="btn btn-primary pull-right space-left" ng-model="results.showChart" btn-radio="'true'" uncheckable ng-show="results.showChart"><i class="fa fa-area-chart"></i> Hide Graph</button>
       <button class="btn btn-default pull-right" ng-click="results.getAllWhiskies()">Reset Results</button>
     </div>
     <div class="chart-wrapper" id="bubble-chart" bubble-chart="results.visibleWhiskies" ng-show="results.showChart"></div>
