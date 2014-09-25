@@ -8,12 +8,13 @@ $superlime: rgba(200, 247, 197, 1.0);
 $curious-blue: rgba(52, 152, 219, 1.0);
 $ebony: rgba(34, 49, 63, 1.0);
 $body: rgba(255, 236, 219, 1.0);
+$lynch: rgba(108, 122, 137, 1.0);
 
 .chart-wrapper {
   width: 800px;
   // height: 520px;
   overflow: hidden;
-  background: rgba($body, 0.8);
+  background: rgba($lynch, 0.8);
   border-radius: 4px;
   box-shadow: 1px 1px 3px #999;
   position: absolute;
@@ -22,6 +23,17 @@ $body: rgba(255, 236, 219, 1.0);
   z-index: 99999;
   .title {
     margin: 1em;
+    h2 {
+      border-bottom: 1px solid white;
+      width: 75%;
+      color: white;
+      padding-bottom: 0.25em;
+    }
+    p {
+      color: white;
+      margin-top: 0;
+    }
+
   }
   div.sideBar {
     width: 180px;

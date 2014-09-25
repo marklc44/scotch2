@@ -5,13 +5,13 @@
       <div>
 
           <div class="profile-buttons">
-            <a class="btn btn-default pull-left" href="/">&laquo; Back to Search</a>
-            <button class="btn btn-default pull-right">Add to favorites</button>
+            <a class="btn btn-default pull-left" href="/"><i class="fa fa-chevron-left"></i> Back to Search</a>
+            <button class="btn btn-default pull-right"><i class="fa fa-heart-o"></i> Add to favorites</button>
           </div>
 
           <div class="info-text">
             <h2>{{whisky.name}}</h2>
-            <p>Producer: {{whisky.producer.name}}</p>
+            <p>Producer: <a href="/producers/{{whisky.producer.id}}">{{whisky.producer.name}}</a></p>
             <p>Region: {{whisky.region.name}}</p>
             <p>
               <span class="rating">Rating: {{whisky.rating}}</span> |

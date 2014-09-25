@@ -6,10 +6,18 @@ $curious-blue: rgba(52, 152, 219, 1.0);
 $ebony: rgba(34, 49, 63, 1.0);
 $body: rgba(255, 236, 219, 1.0);
 $fountain: rgba(92, 151, 191, 1.0);
+$link: rgba(243, 156, 18, 1.0);
 
 body {
   font-family: 'Arimo';
   background: lighten($body, 5%);
+}
+
+a {
+  color: $link;
+  &:hover {
+    color: lighten($link, 20%);
+  }
 }
 
 h2 {
@@ -21,12 +29,24 @@ h2 {
   color: white;
   width: 100%;
   margin: 0;
-  padding: 1em;
+  .header-top {
+    background: lighten($ebony, 20%);
+    padding: 1em 3em;
+    overflow: hidden;
+  }
   .logo {
     margin: 0 auto;
     font-size: 3em;
     text-align: center;
     font-family: 'Racing Sans One', sans-serif;
+    padding: 0.33em;
+    .scotchme {
+      font-family: 'Arimo', sans-serif;
+    }
+    .small-text {
+      font-family: 'Arimo', sans-serif;
+      font-size: 0.5em;
+    }
   }
 }
 .chart-wrapper {
@@ -49,7 +69,14 @@ h2 {
     color: white;
   }
 }
-
+.page-footer {
+  overflow: hidden;
+  width: 100%;
+  background: lighten($ebony, 20%);
+  padding: 1em;
+  padding-right: 3em;
+  color: $fountain;
+}
 
 
 
