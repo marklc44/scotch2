@@ -1,31 +1,41 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row profile-upper">
     <div class="col-sm-4 info">
-      <a class="btn btn-default" href="/">&laquo; Back to list</a>
-      <div class="producer-image-wrapper">
-        <img src="{{producer.image_url}}" alt="{{producer.name}}">
+      <div class="profile-buttons">
+        <a class="btn btn-default" href="/">&laquo; Back to list</a>
+        <a class="btn btn-default pull-right" href="/">Add to Favorites</a>
       </div>
-      <div class="producer-text-wrapper">
-        <h2><a href="{{producer.url}}">{{producer.name}}</a></h2>
-        <p>{{producer.region.name}}</p>
-        <p><a href="http://whiskyadvocate.com/ratings-reviews/?brand_id={{producer.wa_brand_id}}&rating=0&price=0&category_id=0&issue_id=0&reviewer=0" target="_blank">More info on Whisky Advocate</a></p>
+      <div class="info-text">
+        <div class="producer-image-wrapper">
+          <img src="{{producer.image_url}}" alt="{{producer.name}}">
+        </div>
+        <div class="producer-text-wrapper">
+          <h2><a href="{{producer.url}}">{{producer.name}}</a></h2>
+          <p>{{producer.region.name}}</p>
+          <p><a href="http://whiskyadvocate.com/ratings-reviews/?brand_id={{producer.wa_brand_id}}&rating=0&price=0&category_id=0&issue_id=0&reviewer=0" target="_blank">More info on Whisky Advocate</a></p>
+        </div>
       </div>
 
     </div><!-- /.col -->
 
-    <div class="col-sm-8 flavor-graph-bg">
-      <div class="flavor-graph">
-        <div ng-repeat="item in flavorNums" class="drop drop{{item[1]}} move-drops" data-value="{{item[1]}}" data-key="{{item[0]}}">
-            <span class="dataValue">{{item[1]}}</span>
-            <span class="dataLabel">{{item[0]}}</span>
+    <div class="col-sm-8">
+      <div class="flavor-graph-bg">
+        <div class="sidebar">
+          <h3>Flavor Profile</h3>
         </div>
+        <div class="flavor-graph">
+          <div ng-repeat="item in flavorNums" class="drop drop{{item[1]}} move-drops" data-value="{{item[1]}}" data-key="{{item[0]}}">
+              <span class="dataValue">{{item[1]}}</span>
+              <span class="dataLabel">{{item[0]}}</span>
+          </div>
 
+        </div>
       </div>
     </div><!-- /.col -->
   </div><!-- /.row -->
 
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 data-table">
       <!-- make this a directive -->
       <!-- include pagination functions -->
       <table class="table table-hover">

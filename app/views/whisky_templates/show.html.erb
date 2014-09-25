@@ -1,18 +1,22 @@
-<div class="container-fluid" ng-controller="ShowWhiskyCtrl">
+<div class="container" ng-controller="ShowWhiskyCtrl">
 
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6 info">
       <div>
-        <div class="info">
-          <a class="btn btn-default" href="/">Back to Search</a>
-          <h2>{{whisky.name}}</h2>
-          <p>Producer: {{whisky.producer.name}}</p>
-          <p>Region: {{whisky.region.name}}</p>
-          <p>
-            <span class="rating">Rating: {{whisky.rating}}</span> |
-            <span class="age">Age: {{whisky.age}}</span>
-          </p>
-          <button class="btn btn-default">Add to favorites</button>
+
+          <div class="profile-buttons">
+            <a class="btn btn-default" href="/">&laquo; Back to Search</a>
+            <button class="btn btn-default pull-right">Add to favorites</button>
+          </div>
+
+          <div class="info-text">
+            <h2>{{whisky.name}}</h2>
+            <p>Producer: {{whisky.producer.name}}</p>
+            <p>Region: {{whisky.region.name}}</p>
+            <p>
+              <span class="rating">Rating: {{whisky.rating}}</span> |
+              <span class="age">Age: {{whisky.age}}</span>
+            </p>
         </div>
       </div>
     </div><!-- /.col -->
@@ -21,7 +25,8 @@
   </div><!-- /.row -->
 
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 data-table">
+      <h3>Deals on Bowmore Whisky</h3>
       <table class="table table-hover">
         <thead>
           <th>Region</th>

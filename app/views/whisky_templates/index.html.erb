@@ -1,11 +1,11 @@
 
 
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 regions map">
 
 
-      <div class="regions map" ng-controller="RegionsCtrl">
+      <div class="" ng-controller="RegionsCtrl">
         <div ng-repeat="region in regions" class="{{region.name}}">
           <h3>{{region.name}}</h3>
           <div ng-include="'/images/' + region.name + '.svg'" ng-click="results.getRegionWhiskies(region.id)" class="region-img"></div>
@@ -22,7 +22,7 @@
   </div><!-- /.row -->
 
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-sm-12 data-table">
     <div class="controls">
       <div class="btn-group">
         <label class="btn btn-primary" ng-model="results.sortBy" btn-radio="'-price'" uncheckable>Most Expensive</label>
