@@ -13,10 +13,13 @@ $body: rgba(255, 236, 219, 1.0);
 
 // -- Whisky Profile Show --
 
+.row.profile-upper {
+  background: $curious-blue;
+}
 .info {
   background: lighten($ebony, 10%) ;
   padding: 1em;
-  border-radius: 4px;
+  border-radius: 0 0 10px 0;
   color: lighten($curious-blue, 30%);
   h2 {
     margin-top: 0;
@@ -26,6 +29,7 @@ $body: rgba(255, 236, 219, 1.0);
   overflow: hidden;
   float: left;
   width: 20%;
+  max-width: 150px;
   .producer-img {
     width: 150px;
   }
@@ -39,7 +43,6 @@ html .flavor-graph {
 }
 
 .flavor-graph-bg {
-  background: $curious-blue;
   padding: 4em 3em 4em 2em;
 }
 
