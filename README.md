@@ -8,7 +8,7 @@ ScotchyScotchMe is part of a continuing Scotch Whisky flavor search and data vis
 
 This version of the project is an Angular SPA built on Rails with Postgres.
 
-See the live site at [scotchy.herokuapp.com](http://scotchy.herokuapp.com).
+### See the live site at [scotchy.herokuapp.com](http://scotchy.herokuapp.com).
 
 -  Deal data from Semantics3.
 -  Whisky Ratings and pricing from Whisky Advocate.
