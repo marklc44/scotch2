@@ -3,21 +3,21 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 regions map">
-
-
-      <div class="" ng-controller="RegionsCtrl">
-        <div ng-repeat="region in regions" class="{{region.name}}">
-          <h3>{{region.name}}</h3>
-          <div ng-include="'/images/' + region.name + '.svg'" ng-click="results.getRegionWhiskies(region.id)" class="region-img"></div>
-          <div class="overlay overlay-{{region.name}}" ng-show="results.showRegionDesc[{{region.id}}]" ng-click="results.hideRegionDescModal()">
-            <div class="text">
+      <div class="map-bg">
+        <div class="" ng-controller="RegionsCtrl">
+          <div ng-repeat="region in regions" class="region {{region.name}}">
             <h3>{{region.name}}</h3>
-              <p>{{region.description}}</p>
+            <div ng-include="'/images/' + region.name + '.svg'" ng-click="results.getRegionWhiskies(region.id)" class="region-img"></div>
+            <div class="overlay overlay-{{region.name}}" ng-show="results.showRegionDesc[{{region.id}}]" ng-click="results.hideRegionDescModal()">
+              <div class="text">
+              <h3>{{region.name}}</h3>
+                <p>{{region.description}}</p>
+              </div>
+              <div ng-include="'/images/' + region.name + '.svg'" ng-click="results.getRegionWhiskies(region.id)" class="region-img small"></div>
             </div>
-            <div ng-include="'/images/' + region.name + '.svg'" ng-click="results.getRegionWhiskies(region.id)" class="region-img small"></div>
           </div>
         </div>
-      </div>
+      </div><!-- /.map-bg -->
     </div><!-- /.col -->
   </div><!-- /.row -->
 
