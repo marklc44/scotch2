@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   # get "/whiskies/:id", to: "whiskies#show"
   get "/producers/:id", to: "producers#show"
   get "/regions/:id/whiskies", to: "regions#show"
-  get "/deals", to: "deals#show"
+  get "/deals/:brand", to: "deals#show"
 
   # match "*path", to: "sites#index", via: "get"
 end

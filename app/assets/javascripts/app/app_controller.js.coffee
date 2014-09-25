@@ -60,14 +60,22 @@ class ResultsCtrl
 
 class ShowWhiskyCtrl
 
-  constructor: (@scope, @Whisky, routeParams) ->
+  constructor: (@scope, @Whisky, @Deals, routeParams) ->
     console.log "whisky controller loaded"
     @scope.whisky = {}
+    @scope.deals = []
     @id = routeParams.id
-
+    console.log @id
     @Whisky.get {id: @id}, (data) =>
       console.log data
       @scope.whisky = data
+      @Deals.get {brand: @scope.whisky.producer.name}, (data) =>
+        console.log data.results
+        @scope.deals = data.results
+
+  filterNullPrice: (deal) ->
+    console.log "filter called"
+
 
 
 class ShowProducerCtrl
@@ -91,7 +99,6 @@ class ShowProducerCtrl
       @scope.producer = data
       @scope.totalItems = @scope.producer.whiskies.length
       @scope.visibleWhiskies = @scope.producer.whiskies
-      window.visibleWhiskies = @scope.visibleWhiskies
       @flavorData = data.flavor_profile
       @filterFlavors()
 
@@ -128,7 +135,7 @@ class ShowProducerCtrl
 
 AppCtrls.controller "ResultsCtrl", ["$scope", "Whisky", "Region", "RegionsWhiskies", ResultsCtrl]
 # saved this as example of how to add another controller
-AppCtrls.controller "ShowWhiskyCtrl", ["$scope", "Whisky", "$routeParams", ShowWhiskyCtrl]
+AppCtrls.controller "ShowWhiskyCtrl", ["$scope", "Whisky", "Deals", "$routeParams", ShowWhiskyCtrl]
 
 AppCtrls.controller "ShowProducerCtrl", ["$scope", "Producer", "$routeParams", ShowProducerCtrl]
 

@@ -27,3 +27,6 @@ AppFactories.factory "RegionsProducersWhiskies", ["$resource", ($resource) ->
   return $resource "/regions/:region_id/producers/:producer_id/whiskies/:id.json"
 
 ]
+AppFactories.factory "Deals", ["$resource", ($resource) ->
+  return $resource "/deals/:brand.json"
+]
