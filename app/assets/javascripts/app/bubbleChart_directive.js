@@ -55,10 +55,10 @@ ScotchApp.directive("bubbleChart", function() {
 
         canvas.append('svg:g').call(xAxis)
           .attr('transform', 'translate(0, 320)')
-          .attr('fill', '#999');
+          .attr('fill', '#666');
         canvas.append('svg:g').call(yAxis)
           .attr('transform', 'translate(0, 0)')
-          .attr('fill', '#999');
+          .attr('fill', '#666');
 
         d3.selectAll('g.tick')
           .attr('font-size', '.85em')
@@ -91,8 +91,8 @@ ScotchApp.directive("bubbleChart", function() {
           })
           .attr('cx', function(d) { return xRange(d.rating); })
           .attr('cy', function(d) { return yRange(d.age); })
-          .attr('fill', function(d) { return 'rgba(' + (d.producer_id * 20) + ',' + (d.producer_id* 10) + ',' +  (d.producer_id * 40) + ',0.8)'; })
-          .style('opacity', 0.5)
+          .attr('fill', function(d) { return 'rgba(' + (d.producer_id * 20 > 255 ? 255 : d.producer_id * 20) + ',' + (d.producer_id * 10 > 255 ? 255 : d.producer_id * 10) + ',' +  (d.producer_id * 40 > 255 ? 255 : d.producer_id * 40) + ', 1.0)'; })
+          .style('opacity', 0.4)
           .transition()
           .duration(2000)
           .delay(500)

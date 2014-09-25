@@ -4,6 +4,12 @@
 
 $curious-blue: rgba(52, 152, 219, 1.0);
 $ebony: rgba(34, 49, 63, 1.0);
+$body: rgba(255, 236, 219, 1.0);
+
+body {
+  font-family: 'Arimo';
+  background: lighten($body, 5%);
+}
 
 .page-header {
   background: $ebony;
@@ -15,6 +21,7 @@ $ebony: rgba(34, 49, 63, 1.0);
     margin: 0 auto;
     font-size: 3em;
     text-align: center;
+    font-family: 'Racing Sans One', sans-serif;
   }
 }
 .chart-wrapper {

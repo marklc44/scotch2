@@ -133,13 +133,31 @@ class ShowProducerCtrl
     @scope.visibleWhiskies = @scope.producer.whiskies.slice(thisPage * 10, thisPage * 10 + 10)
 
 
+class SessionsCtrl
+  constructor: (@scope, @http, @rootScope, @locationProvider) ->
+
+  addSession: (loginUser) =>
+    @http.post "/login.json", {user: loginUser}
+      .success (user) ->
+        @rootScope.current_user = user
+        # check redirect
+        @locationProvider.redirect('/')
+      .error (errors) ->
+        alert "invalid email or password"
+
+class MainCtrl
+  constructor: (@scope, @http, @rootScope) ->
+
+
 AppCtrls.controller "ResultsCtrl", ["$scope", "Whisky", "Region", "RegionsWhiskies", ResultsCtrl]
 # saved this as example of how to add another controller
 AppCtrls.controller "ShowWhiskyCtrl", ["$scope", "Whisky", "Deals", "$routeParams", ShowWhiskyCtrl]
 
 AppCtrls.controller "ShowProducerCtrl", ["$scope", "Producer", "$routeParams", ShowProducerCtrl]
 
+AppCtrls.controller "SessionsCtrl", ["$scope", "$http", "$rootScope", "$locationProvder", SessionsCtrl]
 
+AppCtrls.controller "MainCtrl", ["$scope", "$http", "$rootScope", MainCtrl]
 
 
 
