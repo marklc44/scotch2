@@ -55,6 +55,9 @@ $water: rgba(34, 167, 240, 1.0);
             }
         }
       }
+      .overlay {
+        z-index: 9999;
+      }
     }
     .Lowland {
       position: absolute;
@@ -135,7 +138,6 @@ $water: rgba(34, 167, 240, 1.0);
       color: #666;
       padding: 1em;
       border-radius: 4px;
-      z-index: 99999;
       text-align: left;
       .text {
         float: left;
