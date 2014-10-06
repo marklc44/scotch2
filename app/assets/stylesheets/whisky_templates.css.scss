@@ -12,7 +12,7 @@ $lynch: rgba(108, 122, 137, 1.0);
 
 .chart-wrapper {
   width: 800px;
-  // height: 520px;
+  // height: 600px;
   overflow: hidden;
   background: rgba($lynch, 0.8);
   border-radius: 4px;
@@ -38,7 +38,7 @@ $lynch: rgba(108, 122, 137, 1.0);
   div.sideBar {
     width: 180px;
     font-size: 14px;
-    height: 520px;
+    height: 537px;
     position: absolute;
     right: 0;
     top: 0;
@@ -59,7 +59,9 @@ $lynch: rgba(108, 122, 137, 1.0);
     }
   }
 }
-
+.axis-label {
+  font-size: 18px;
+}
 .bubbles {
   .node-label {
     font-size: 12px;

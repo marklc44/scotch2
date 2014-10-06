@@ -29,7 +29,7 @@ ScotchApp.directive("bubbleChart", function() {
             .attr('height', height)
             .attr('class', 'bubbles')
             .append('g')
-              .attr('transform', 'translate(50, 50)');
+              .attr('transform', 'translate(50, 25)');
 
         var xRange = d3.scale.linear().range([10, 520]).domain([
             d3.min(data, function(d) {
@@ -47,7 +47,6 @@ ScotchApp.directive("bubbleChart", function() {
               return d.age;
             })
           ]);
-        // jack danger, square
         // also maybe create my own axes
         // these look crappy
         var xAxis = d3.svg.axis().scale(xRange);
@@ -55,13 +54,31 @@ ScotchApp.directive("bubbleChart", function() {
 
         canvas.append('svg:g').call(xAxis)
           .attr('transform', 'translate(0, 320)')
-          .attr('fill', '#666');
+          .attr('fill', '#fff');
         canvas.append('svg:g').call(yAxis)
           .attr('transform', 'translate(0, 0)')
-          .attr('fill', '#666');
+          .attr('fill', '#fff');
 
         d3.selectAll('g.tick')
           .attr('font-size', '.85em')
+
+        canvas.append("text")
+          .attr('class', 'axis-label y')
+          .attr('text-anchor', 'end')
+          .attr('y', -18)
+          .attr('dy', -20)
+          .attr('x', -120)
+          .attr('transform', 'rotate(-90)')
+          .attr('fill', '#fff')
+          .text('Age')
+
+        canvas.append("text")
+          .attr('class', 'axis-label x')
+          .attr('text-anchor', 'end')
+          .attr('y', 360)
+          .attr('x', 265)
+          .attr('fill', '#fff')
+          .text('Rating')
 
 
         var circles = canvas.selectAll('circle').data(data);
