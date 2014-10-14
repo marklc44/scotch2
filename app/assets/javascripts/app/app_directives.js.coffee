@@ -18,15 +18,15 @@
 
 #   }
 
-# ScotchApp.directive "showRegionDesc", () ->
-#   return {
-#     restrict: "A",
-#     scope: {
-#       region: "="
-#       },
-#     templateUrl: "templates/region_modal.html"
+ScotchApp.directive "showRegionDesc", () ->
+  return {
+    restrict: "A",
+    scope: {
+      region: "="
+      },
+    templateUrl: "templates/region_modal.html"
 
-#   }
+  }
 
 # ScotchApp.directive "bubbleChart", () ->
 #   return {
