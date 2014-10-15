@@ -20,6 +20,7 @@ $water: rgba(34, 167, 240, 1.0);
       border-radius: 0 0 10px 10px;
       overflow: visible;
       margin: 0 auto;
+      z-index: 2;
       .map-bg-svg {
         width: 400px;
       }
@@ -44,7 +45,7 @@ $water: rgba(34, 167, 240, 1.0);
       position: absolute;
       top: -10px;
       left: 180px;
-      z-index: 0;
+      z-index: 2;
       .region-img {
         width: 333px;
         .svg {
