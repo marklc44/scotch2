@@ -31,7 +31,11 @@ class ProducersController < ApplicationController
     all_profiles.each_with_index do |profile, index|
       if profile[:smoky] == compare_to[0][:smoky]
         if profile[:sweetness] == compare_to[0][:sweetness]
-          similar_profiles.push(profile.flavored_id)
+          if profile[:flavored_id] == compare_to[0].flavored_id
+            similar_profiles.unshift(profile.flavored_id)
+          else
+            similar_profiles.push(profile.flavored_id)
+          end
         end
       end
     end

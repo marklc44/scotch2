@@ -123,15 +123,12 @@ class ShowProducerCtrl
   filterFlavors: () =>
     # filter and sort flavor data
     excludes = ["broad_keyword1", "broad_keyword2", "id", "created_at", "updated_at", "flavored_id", "flavored_type"]
-    console.log @flavorData
 
     for key of @flavorData
-      console.log key
       obj = []
       if excludes.indexOf(key) == -1 && @flavorData[key] != 0
         obj.push(key)
         obj.push(@flavorData[key])
-        console.log obj
         @flavorNums.push(obj)
     @flavorNums.sort (a, b) =>
       a[1] - b[1]

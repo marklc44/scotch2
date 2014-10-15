@@ -33,18 +33,25 @@ ScotchApp.directive "radarChart", () ->
       return {
       restrict: "E",
       scope: {
+            name: '@currentProducer',
             chartTitle: '@chartTitle',
             data: '=chartData'
       },
       templateUrl: "/templates/radar_chart.html",
       link: (scope, element, attrs) ->
             console.log "radar chart directive loaded"
+            currentName = ''
+
+            attrs.$observe "currentproducer", (value) ->
+                  currentName = value
+
 
             attrs.$observe "chartdata", (value) ->
                   console.log "watched data", angular.fromJson value
                   rawData = angular.fromJson value
                   rawFlavors = []
                   dataSets = []
+                  indexAdjust = 0
 
                   colors = [
                         {
@@ -84,6 +91,8 @@ ScotchApp.directive "radarChart", () ->
 
                   # construct dataSets array
                   rawFlavors.forEach (item, i) ->
+                        # need access to current producer name
+                        nameCheck = false
                         if i < 4
                               dataset = {}
                               dataset.data = item.data
@@ -96,7 +105,7 @@ ScotchApp.directive "radarChart", () ->
                               dataset.pointHighlightStroke = "rgba(220,220,220,1)"
                               dataSets.push dataset
 
-                  console.log dataSets
+                  console.log "dataSets", dataSets
                   # construct cData object
 
                   cData = {
