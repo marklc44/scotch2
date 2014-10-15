@@ -10,7 +10,7 @@
 #   }
 
 
-<<<<<<< HEAD
+
 # ScotchApp.directive "searchDirective", () ->
 #   return {
 #     restrict: "A",
