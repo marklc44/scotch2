@@ -35,7 +35,7 @@ $water: rgba(34, 167, 240, 1.0);
             fill: #4B77BE;
             transition: all 0.5s linear;
             &:hover {
-              fill: darken(#4B77BE, 10%);
+              fill: darken(#4B77BE, 15%);
             }
           }
         }
@@ -45,14 +45,14 @@ $water: rgba(34, 167, 240, 1.0);
       position: absolute;
       top: -10px;
       left: 180px;
-      z-index: 2;
+      z-index: 0;
       .region-img {
         width: 333px;
         .svg {
           fill: #26A65B;
           transition: all 0.5s linear;
             &:hover {
-              fill: darken(#26A65B, 10%);
+              fill: darken(#26A65B, 15%);
             }
         }
       }
@@ -62,16 +62,21 @@ $water: rgba(34, 167, 240, 1.0);
     }
     .Lowland {
       position: absolute;
-      top: 279px;
-      right: 100px;
+      top: 347px;
+      right: 95px;
+      h3.map-heading {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+      }
       .region-img {
         width: 240px;
-        z-index: 100;
+        z-index: 150;
         .svg {
           fill: #34495E;
           transition: all 0.5s linear;
             &:hover {
-              fill: darken(#34495E, 10%);
+              fill: darken(#34495E, 15%);
             }
         }
       }
@@ -88,7 +93,7 @@ $water: rgba(34, 167, 240, 1.0);
           fill: #3A539B;
           transition: all 0.5s linear;
             &:hover {
-              fill: darken(#3A539B, 10%);
+              fill: darken(#3A539B, 15%);
             }
         }
       }
@@ -105,7 +110,7 @@ $water: rgba(34, 167, 240, 1.0);
           fill: #674172;
           transition: all 0.5s linear;
             &:hover {
-              fill: darken(#674172, 10%);
+              fill: darken(#674172, 15%);
             }
         }
       }
@@ -115,7 +120,7 @@ $water: rgba(34, 167, 240, 1.0);
       top: 21px;
       left: 100px;
       z-index: 20;
-      h3 {
+      h3.map-heading {
         margin-top: 0;
       }
       .region-img {
@@ -124,7 +129,7 @@ $water: rgba(34, 167, 240, 1.0);
           fill: #F5AB35;
           transition: all 0.5s linear;
             &:hover {
-              fill: darken(#F5AB35, 10%);
+              fill: darken(#F5AB35, 15%);
             }
         }
       }
@@ -140,6 +145,24 @@ $water: rgba(34, 167, 240, 1.0);
       padding: 1em;
       border-radius: 4px;
       text-align: left;
+      &.overlay-Islands {
+        left: -200px;
+      }
+      &.overlay-Highland {
+        top: 20%;
+        left: 320px;
+      }
+      &.overlay-Islay {
+        top: 0;
+        left: -250px;
+      }
+      &.overlay-Campbeltown {
+        top: -5%;
+        left: 0;
+      }
+      &.overlay-Lowland {
+        left: 100px;
+      }
       .text {
         float: left;
         width: 75%;
