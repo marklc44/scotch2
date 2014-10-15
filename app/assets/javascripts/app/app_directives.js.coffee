@@ -28,7 +28,7 @@ ScotchApp.directive "showRegionDesc", () ->
     templateUrl: "templates/region_modal.html"
 
   }
-=======
+
 ScotchApp.directive "radarChartx", () ->
       return {
       restrict: "E",
@@ -191,7 +191,7 @@ ScotchApp.directive "radarChart", () ->
 #     templateUrl: "templates/region_modal.html"
 
 #   }
->>>>>>> region-modal
+
 
 
 
