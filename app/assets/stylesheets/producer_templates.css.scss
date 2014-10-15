@@ -249,7 +249,8 @@ html .flavor-graph {
   height: auto;
   padding: 1em;
   background: #fff;
-  border-radius: 4px;
+  border-radius: 10px;
+  border: 1px solid rgba(34, 49, 63, 0.1);
 }
 .chart {
   width: 100% !important;
@@ -257,8 +258,9 @@ html .flavor-graph {
 }
 .legend span {
   display: inline-block;
-  margin-right: 2em;
+  margin-right: 1.5em;
   a {
     color: none;
+    font-size: 1.5em;
   }
 }

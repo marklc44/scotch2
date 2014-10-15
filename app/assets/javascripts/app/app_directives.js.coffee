@@ -98,6 +98,14 @@ ScotchApp.directive "radarChart", () ->
                         {
                               fill: "27, 188, 155",
                               stroke: "135, 211, 124"
+                        },
+                        {
+                              fill: "142, 68, 173",
+                              stroke: "249, 191, 59"
+                        },
+                        {
+                              fill: "207, 0, 15",
+                              stroke: "207, 0, 15"
                         }
                   ]
 
@@ -116,16 +124,17 @@ ScotchApp.directive "radarChart", () ->
 
                   # construct dataSets array
                   rawFlavors.forEach (item, i) ->
-                        dataset = {}
-                        dataset.data = item.data
-                        dataset.label = rawData[i].name
-                        dataset.fillColor = "rgba(" + colors[i].fill + ",0.4)"
-                        dataset.strokeColor = "rgba(" + colors[i].sroke + ",1)"
-                        dataset.pointColor = "rgba(220,220,220,1)"
-                        dataset.pointStrokeColor = "rgba(" + colors[i].stroke + ",1)"
-                        dataset.pointHighlightFill = "#fff"
-                        dataset.pointHighlightStroke = "rgba(220,220,220,1)"
-                        dataSets.push dataset
+                        if i < 4
+                              dataset = {}
+                              dataset.data = item.data
+                              dataset.label = rawData[i].name
+                              dataset.fillColor = "rgba(" + colors[i].fill + ",0.4)"
+                              dataset.strokeColor = "rgba(" + colors[i].sroke + ",1)"
+                              dataset.pointColor = "rgba(220,220,220,1)"
+                              dataset.pointStrokeColor = "rgba(" + colors[i].stroke + ",1)"
+                              dataset.pointHighlightFill = "#fff"
+                              dataset.pointHighlightStroke = "rgba(220,220,220,1)"
+                              dataSets.push dataset
 
                   console.log dataSets
                   # construct cData object
@@ -148,7 +157,7 @@ ScotchApp.directive "radarChart", () ->
                   #add legend
                   legendLabels = ''
                   dataSets.forEach (item, i) ->
-                        legendLabels += '<span style="color: rgb(' + colors[i].fill + ');"><a href="/producers/' + rawData[i].id + '">' + item.label + '</a></span>'
+                        legendLabels += '<span><a style="color: rgb(' + colors[i].fill + ');" href="/producers/' + rawData[i].id + '">' + item.label + '</a></span>'
                   tplChildren[1].innerHTML = legendLabels
 
             attrs.$observe "charttitle", (value) ->
