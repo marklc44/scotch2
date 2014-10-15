@@ -10,15 +10,6 @@
 #   }
 
 
-
-# ScotchApp.directive "searchDirective", () ->
-#   return {
-#     restrict: "A",
-#     scope: true,
-#     template: "<h2>Hello {{results.currentPage}}</h2>"
-
-#   }
-
 ScotchApp.directive "showRegionDesc", () ->
   return {
     restrict: "A",
