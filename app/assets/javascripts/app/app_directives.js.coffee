@@ -137,7 +137,6 @@ ScotchApp.directive "radarChart", () ->
                   }
 
                   # build chart
-                  console.log "cData", cData
                   tplChildren = element.children()
                   window.kids = tplChildren
                   ctx = tplChildren[2].getContext('2d')
@@ -145,6 +144,12 @@ ScotchApp.directive "radarChart", () ->
 
                   # add title
                   tplChildren[0].innerHTML = attrs.charttitle
+
+                  #add legend
+                  legendLabels = ''
+                  dataSets.forEach (item, i) ->
+                        legendLabels += '<span style="color: rgb(' + colors[i].fill + ');"><a href="/producers/' + rawData[i].id + '">' + item.label + '</a></span>'
+                  tplChildren[1].innerHTML = legendLabels
 
             attrs.$observe "charttitle", (value) ->
                   element.children()[0].innerHTML = value

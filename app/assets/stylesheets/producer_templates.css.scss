@@ -255,3 +255,10 @@ html .flavor-graph {
   width: 100% !important;
   height: auto !important;
 }
+.legend span {
+  display: inline-block;
+  margin-right: 2em;
+  a {
+    color: none;
+  }
+}
