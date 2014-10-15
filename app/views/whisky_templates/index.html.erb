@@ -5,22 +5,22 @@
   <div class="row">
     <div class="col-sm-12 regions map">
       <div class="map-bg">
-        <!-- <object class="map-bg-svg" type="image/svg+xml" data="/images/whisky-region-map-bg.svg" class="map background">
-        </object> -->
         <div ng-controller="RegionsCtrl">
           <div ng-repeat="region in regions" class="region {{region.name}}">
+
             <h3 class="map-heading">{{region.name}}</h3>
             <div ng-include="'/images/' + region.name + '.svg'" ng-click="results.getRegionWhiskies(region.id)" class="region-img"></div>
 
             <div class="overlay overlay-{{region.name}}" ng-show="results.showRegionDesc[{{region.id}}]" ng-click="results.hideRegionDescModal()">
               <div class="text">
-              <h3>{{region.name}}</h3>
+                <div class="close-overlay"><i class="fa fa-close"></i></div>
+                <h3>{{region.name}}</h3>
                 <p>{{region.description}}</p>
               </div>
               <div ng-include="'/images/' + region.name + '.svg'" ng-click="results.getRegionWhiskies(region.id)" class="region-img small"></div>
             </div>
-          </div>
-        </div>
+          </div><!-- / ngrepeat -->
+        </div><!-- / region controller-->
       </div><!-- /.map-bg -->
     </div><!-- /.col -->
   </div><!-- /.row -->
