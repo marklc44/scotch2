@@ -38,7 +38,7 @@
   </div><!-- /.row -->
 
   <div class="row">
-    <div class="col-sm-12 data-table">
+    <div class="col-sm-6 data-table">
       <!-- make this a directive -->
       <!-- include pagination functions -->
       <table class="table table-hover">
@@ -62,8 +62,11 @@
 
     <pagination total-items="totalItems" ng-model="currentPage" max-size="10" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" ng-change="producer.setPage(currentPage)"></pagination>
 
-
-    {{currentPage}} | {{totalItems}}
+    </div>
+    <div class="col-sm-6">
+      <div class="chart-container">
+        <radar-chart chartTitle="Compare to Similar Scotch" chartData="{{similarFlavors}}"></radar-chart>
+      </div>
     </div>
   </div>
 </div><!-- /.container -->

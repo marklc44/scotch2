@@ -242,3 +242,25 @@ html .flavor-graph {
     top: 50px;
     height: 30px;
 }
+
+// Radar Charts
+.chart-container {
+  width: 100%;
+  height: auto;
+  padding: 1em;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba(34, 49, 63, 0.1);
+}
+.chart {
+  width: 100% !important;
+  height: auto !important;
+}
+.legend span {
+  display: inline-block;
+  margin-right: 1.5em;
+  a {
+    color: none;
+    font-size: 1.5em;
+  }
+}

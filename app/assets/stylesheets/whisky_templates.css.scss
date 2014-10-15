@@ -87,6 +87,9 @@ $lynch: rgba(108, 122, 137, 1.0);
   padding: 1em;
   border-radius: 10px;
   border: 1px solid rgba($ebony, 0.1);
+  th {
+    cursor: pointer;
+  }
 }
 
 
