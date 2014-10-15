@@ -1,12 +1,12 @@
 <div class="container" ng-controller="ShowWhiskyCtrl">
 
   <div class="row">
-    <div class="col-md-6 info">
+    <div class="col-md-12 info whisky">
       <div>
 
           <div class="profile-buttons">
             <a class="btn btn-default pull-left" href="/"><i class="fa fa-chevron-left"></i> Back to Search</a>
-            <button class="btn btn-default pull-right"><i class="fa fa-heart-o"></i> Add to favorites</button>
+            <!--<button class="btn btn-default pull-right"><i class="fa fa-heart-o"></i> Add to favorites</button>-->
           </div>
 
           <div class="info-text">
@@ -20,15 +20,16 @@
         </div>
       </div>
     </div><!-- /.col -->
-    <div class="col-md-6 flavor-profile">
+    <!--<div class="col-md-6 flavor-profile">
       <div class="flavor-graph-bg whisky">
         <div class="sidebar">
           <div class="top-bar"></div>
           <!-- <h3>Flavor Profile</h3> -->
-        </div>
+       <!-- </div>
         <p class="coming-soon">Whisky flavor profiles coming soon!</p>
       </div>
-    </div>
+    </div>-->
+
   </div><!-- /.row -->
 
   <div class="row">
@@ -46,7 +47,7 @@
           <!--  -->
           <tr ng-repeat="deal in deals | filterNullPrice">
             <td>{{whisky.region.name}}</td>
-            <td>{{deal.brand}}</td>
+            <td><a href="/producers/{{whisky.producer.id}}">{{deal.brand}}</a></td>
             <td><a href="{{deal.sitedetails[0].url}}">{{deal.name}}</a></td>
             <td>{{deal.sitedetails[0].name}}</td>
             <td>${{deal.sitedetails[0].latestoffers[0].price}}</td>
