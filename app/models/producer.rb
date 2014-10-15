@@ -5,4 +5,5 @@ class Producer < ActiveRecord::Base
   has_one :flavor_profile, as: :flavored
 
   validates_presence_of :name
+
 end

@@ -242,3 +242,16 @@ html .flavor-graph {
     top: 50px;
     height: 30px;
 }
+
+// Radar Charts
+.chart-container {
+  width: 100%;
+  height: auto;
+  padding: 1em;
+  background: #fff;
+  border-radius: 4px;
+}
+.chart {
+  width: 100% !important;
+  height: auto !important;
+}

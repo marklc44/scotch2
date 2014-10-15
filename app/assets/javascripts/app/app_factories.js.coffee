@@ -30,3 +30,7 @@ AppFactories.factory "RegionsProducersWhiskies", ["$resource", ($resource) ->
 AppFactories.factory "Deals", ["$resource", ($resource) ->
   return $resource "/deals/:brand.json"
 ]
+
+AppFactories.factory "Similar", ["$resource", ($resource) ->
+  return $resource "/similar/:id.json"
+]

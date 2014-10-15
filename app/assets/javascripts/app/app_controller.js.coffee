@@ -22,6 +22,7 @@ class ResultsCtrl
       @visibleWhiskies = data
 
   getAllWhiskies: =>
+    @sortBy = '-rating'
     @Whisky.query (data) =>
       console.log(data)
       @whiskies = data
@@ -56,6 +57,16 @@ class ResultsCtrl
     thisPage = @currentPage - 1
     @visibleWhiskies = @whiskies.slice(thisPage * 10, thisPage * 10 + 10)
 
+  # sorting
+  toggleSort: (cat) =>
+    console.log "sortby before", @sortBy
+    if @sortBy.split('')[0] == '-'
+      console.log @sortBy.split('')[0]
+      @sortBy = cat
+      console.log "sortby after", @sortBy
+    else
+      @sortBy = '-' + cat
+      console.log "sortby after", @sortBy
 
 
 class ShowWhiskyCtrl
@@ -80,7 +91,7 @@ class ShowWhiskyCtrl
 
 class ShowProducerCtrl
 
-  constructor: (@scope, @Producer, routeParams) ->
+  constructor: (@scope, @Producer, @Similar, routeParams) ->
     console.log "producer controller loaded"
     @scope.producer = {}
     @id = routeParams.id
@@ -88,6 +99,8 @@ class ShowProducerCtrl
     @scope.producer.whiskies = []
 
     @flavorNums = []
+    @scope.flavorNums = []
+    @scope.similarFlavors = []
 
     # pagination
     @scope.currentPage = 1
@@ -101,6 +114,11 @@ class ShowProducerCtrl
       @scope.visibleWhiskies = @scope.producer.whiskies
       @flavorData = data.flavor_profile
       @filterFlavors()
+
+    # why doesn't angular recognize the returned array?
+    @Similar.query {id: @id}, (data) =>
+      @scope.similarFlavors = data
+      console.log "similar data", @scope.similarFlavors
 
   filterFlavors: () =>
     # filter and sort flavor data
@@ -153,7 +171,7 @@ AppCtrls.controller "ResultsCtrl", ["$scope", "Whisky", "Region", "RegionsWhiski
 # saved this as example of how to add another controller
 AppCtrls.controller "ShowWhiskyCtrl", ["$scope", "Whisky", "Deals", "$routeParams", ShowWhiskyCtrl]
 
-AppCtrls.controller "ShowProducerCtrl", ["$scope", "Producer", "$routeParams", ShowProducerCtrl]
+AppCtrls.controller "ShowProducerCtrl", ["$scope", "Producer", "Similar", "$routeParams", ShowProducerCtrl]
 
 AppCtrls.controller "SessionsCtrl", ["$scope", "$http", "$rootScope", "$locationProvder", SessionsCtrl]
 

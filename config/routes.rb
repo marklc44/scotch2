@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'producer_templates/show'
 
+  get '/similar/:id', to: "producers#similar"
+
   root to: "whiskies#index"
 
   # resources :users
