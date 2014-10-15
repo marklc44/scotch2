@@ -1,6 +1,7 @@
 
-
+<div id="the-closer" ng-click="results.showChart=false; $event.stopPropogation();"></div>
 <div class="container">
+
   <div class="row">
     <div class="col-sm-12 regions map">
       <div class="map-bg">
@@ -42,8 +43,8 @@
         <th ng-click="results.toggleSort('region')">Region<i ng-show="results.sortBy == '-region'" class="fa fa-chevron-down"></i><i ng-show="results.sortBy == 'region'" class="fa fa-chevron-up"></i></th>
         <th ng-click="results.toggleSort('producer')">Producer<i ng-show="results.sortBy == '-producer'" class="fa fa-chevron-down"></i><i ng-show="results.sortBy == 'producer'" class="fa fa-chevron-up"></i></th>
         <th ng-click="results.toggleSort('name')">Name<i ng-show="results.sortBy == 'name'" class="fa fa-chevron-down"></i><i ng-show="results.sortBy == '-name'" class="fa fa-chevron-up"></i></th>
-        <th ng-click="results.toggleSort('rating')">Rating<i ng-show="results.sortBy == '-rating'" class="fa fa-chevron-down"></i><i ng-show="results.sortBy == 'rating'" class="fa fa-chevron-up"></i></th>
-        <th ng-click="results.toggleSort('price')">Price<i ng-show="results.sortBy == '-price'" class="fa fa-chevron-down"></i><i ng-show="results.sortBy == 'price'" class="fa fa-chevron-up"></i></th>
+        <th class="sortable" ng-click="results.toggleSort('rating')">Rating<i ng-show="results.sortBy == '-rating'" class="fa fa-chevron-down"></i><i ng-show="results.sortBy == 'rating'" class="fa fa-chevron-up"></i></th>
+        <th class="sortable" ng-click="results.toggleSort('price')">Price<i ng-show="results.sortBy == '-price'" class="fa fa-chevron-down"></i><i ng-show="results.sortBy == 'price'" class="fa fa-chevron-up"></i></th>
       </thead>
       <tbody>
         <tr ng-repeat="whisky in results.visibleWhiskies | limitTo: 10 | orderBy: results.sortBy">

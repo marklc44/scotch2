@@ -87,9 +87,20 @@ $lynch: rgba(108, 122, 137, 1.0);
   padding: 1em;
   border-radius: 10px;
   border: 1px solid rgba($ebony, 0.1);
-  th {
+  z-index: 5;
+  th.sortable {
     cursor: pointer;
   }
+}
+
+// closes graph
+#the-closer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 1200px;
 }
 
 
